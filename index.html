@@ -6,25 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Marca - Cesar</title>
 
+    <!-- FUENTE PRO -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAVBAR PROFESIONAL -->
 <nav class="navbar">
     <img src="imagenes/logo.png" width="80" alt="Logo">
 
     <ul>
-        <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
-        <li><a href="#" onclick="mostrarSeccion('menuProductos')">Productos</a></li>
-        <li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Contacto</a></li>
     </ul>
 </nav>
-
-<!-- INICIO -->
-<div id="inicio">
 
 <header>
     <h1>Bienvenidos 🦾</h1>
@@ -44,48 +43,56 @@
     <div id="resultado"></div>
 </section>
 
-</div>
-
-<!-- MENU PRODUCTOS -->
-<div id="menuProductos" style="display:none;">
-    <h2>Categorías</h2>
-
-    <button onclick="mostrarSeccion('chocolate')">Barras de chocolate</button>
-    <button onclick="mostrarSeccion('manteca')">Manteca de cacao</button>
-    <button onclick="mostrarSeccion('chocolatinas')">Chocolatinas</button>
-    <button onclick="mostrarSeccion('mantequilla')">Mantequilla de cacao</button>
-</div>
-
-<!-- PRODUCTOS (LOS QUE YA TENÍAS) -->
-<div id="chocolate" style="display:none;">
 <section class="productos">
     <h2>Productos</h2>
 
     <div class="producto">
-        <img src="imagenes/producto1.jpg">
+        <img src="imagenes/producto1.jpg" alt="Producto 1">
         <h3>Producto 1</h3>
         <p>$20.000</p>
-        <button onclick="comprarWhatsApp('Producto 1','imagenes/producto1.jpg')">Comprar</button>
+        <button onclick="comprarWhatsApp('Producto 1', 'imagenes/producto1.jpg')">Comprar</button>
     </div>
-</section>
-</div>
 
-<!-- CONTACTO -->
-<div id="contacto" style="display:none;">
+    <div class="producto">
+        <img src="imagenes/producto2.jpg" alt="Producto 2">
+        <h3>Producto 2</h3>
+        <p>$25.000</p>
+        <button onclick="comprarWhatsApp('Producto 2', 'imagenes/producto2.jpg')">Comprar</button>
+    </div>
+
+    <div class="producto">
+        <img src="imagenes/producto3.jpg" alt="Producto 3">
+        <h3>Producto 3</h3>
+        <p>$30.000</p>
+        <button onclick="comprarWhatsApp('Producto 3', 'imagenes/producto3.jpg')">Comprar</button>
+    </div>
+
+    <div class="producto">
+        <img src="imagenes/producto4.jpg" alt="Producto 4">
+        <h3>Producto 4</h3>
+        <p>$35.000</p>
+        <button onclick="comprarWhatsApp('Producto 4', 'imagenes/producto4.jpg')">Comprar</button>
+    </div>
+
+</section>
+    
+<section class="carrito">
+    <h2>Carrito</h2>
+    <ul id="listaCarrito"></ul>
+    <p>Total: $<span id="total">0</span></p>
+
+    <button onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
+</section>
+
 <section class="contacto">
     <h2>Contacto</h2>
 
     <div class="iconos">
-        <img src="imagenes/whatsapp.png" onclick="irWhatsApp()">
-        <img src="imagenes/correo.png" onclick="irCorreo()">
+        <img src="imagenes/whatsapp.png" onclick="irWhatsApp()" alt="WhatsApp">
+        <img src="imagenes/correo.png" onclick="irCorreo()" alt="Correo">
     </div>
-</section>
-</div>
+</section>>
 
-<script src="script.js"></script>
-
-</body>
-</html>
 <script src="script.js"></script>
 
 </body>
