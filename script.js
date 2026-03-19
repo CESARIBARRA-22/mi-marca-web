@@ -1,3 +1,4 @@
+// FORMULARIO
 document.getElementById("formRegistro").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -11,41 +12,49 @@ document.getElementById("formRegistro").addEventListener("submit", function (e) 
         direccion: inputs[4].value
     };
 
-    console.log(usuario);
-
-    // Mostrar en pantalla (extra útil)
     document.getElementById("resultado").innerHTML = `
-        <p><strong>Nombre:</strong> ${usuario.nombre}</p>
-        <p><strong>Cédula:</strong> ${usuario.cedula}</p>
+        <p>${usuario.nombre} registrado</p>
     `;
-
-    alert("Usuario registrado correctamente");
 
     this.reset();
 });
 
 
+// WHATSAPP PRODUCTOS
 function comprarWhatsApp(producto, imagen) {
     let numero = "573128779750";
+    let urlImagen = window.location.origin + "/" + imagen;
 
-    // Detecta si estás en local o en GitHub
-    let urlBase = window.location.origin;
-    let urlImagen = urlBase + "/" + imagen;
+    let mensaje = `Hola, quiero comprar ${producto}\n${urlImagen}`;
 
-    let mensaje = `Hola, quiero comprar ${producto}\nMira este producto: ${urlImagen}`;
-
-    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
-
-    window.open(url, "_blank");
+    window.open("https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje));
 }
+
+
+// BOTÓN WHATSAPP CONTACTO
 function irWhatsApp() {
     let numero = "573128779750";
-    let mensaje = "Hola, quiero información sobre tus productos";
-
-    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
-    window.open(url, "_blank");
+    window.open("https://wa.me/" + numero);
 }
 
+
+// BOTÓN CORREO (ARREGLADO)
 function irCorreo() {
-    window.location.href = "mailto:cesaribarragonzalez508@gmail.com";
+    window.open("mailto:cesaribarragonzalez508@gmail.com");
+}
+
+
+// NAVEGACIÓN ENTRE SECCIONES
+function mostrarSeccion(id) {
+
+    let secciones = ["inicio", "menuProductos", "chocolate", "contacto"];
+
+    secciones.forEach(sec => {
+        let elemento = document.getElementById(sec);
+        if (elemento) {
+            elemento.style.display = "none";
+        }
+    });
+
+    document.getElementById(id).style.display = "block";
 }
