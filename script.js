@@ -17,3 +17,12 @@ document.getElementById("formRegistro").addEventListener("submit", function (e) 
 
     this.reset();
 });
+function comprarWhatsApp(producto) {
+    let numero = "573128779750";
+
+    let mensaje = `Hola, quiero comprar ${producto}`;
+
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+}
