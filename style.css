@@ -36,3 +36,21 @@ a {
     color: white;
     font-size: 20px;
 }
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.producto {
+    background: rgba(0,0,0,0.5);
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 10px;
+}
