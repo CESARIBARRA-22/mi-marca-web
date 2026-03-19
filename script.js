@@ -38,3 +38,14 @@ function comprarWhatsApp(producto, imagen) {
 
     window.open(url, "_blank");
 }
+function irWhatsApp() {
+    let numero = "573128779750";
+    let mensaje = "Hola, quiero información sobre tus productos";
+
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+    window.open(url, "_blank");
+}
+
+function irCorreo() {
+    window.location.href = "mailto:cesaribarragonzalez508@gmail.com";
+}
