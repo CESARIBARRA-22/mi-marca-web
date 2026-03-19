@@ -13,14 +13,26 @@ document.getElementById("formRegistro").addEventListener("submit", function (e) 
 
     console.log(usuario);
 
+    // Mostrar en pantalla (extra útil)
+    document.getElementById("resultado").innerHTML = `
+        <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+        <p><strong>Cédula:</strong> ${usuario.cedula}</p>
+    `;
+
     alert("Usuario registrado correctamente");
 
     this.reset();
 });
-function comprarWhatsApp(producto) {
+
+
+function comprarWhatsApp(producto, imagen) {
     let numero = "573128779750";
 
-    let mensaje = `Hola, quiero comprar ${producto}`;
+    // Detecta si estás en local o en GitHub
+    let urlBase = window.location.origin;
+    let urlImagen = urlBase + "/" + imagen;
+
+    let mensaje = `Hola, quiero comprar ${producto}\nMira este producto: ${urlImagen}`;
 
     let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
 
