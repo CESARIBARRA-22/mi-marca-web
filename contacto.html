@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mi Marca</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <img src="imagenes/logo.png" width="80" alt="Logo de la marca">
+
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Contáctanos</h1>
+    </header>
+
+    <!-- SLIDER -->
+    <section class="slider">
+        <button onclick="cambiarImagen(-1)">⬅</button>
+
+        <img id="imagenSlider" src="imagenes/producto1.jpg" alt="Producto destacado">
+
+        <button onclick="cambiarImagen(1)">➡</button>
+    </section>
+
+    <!-- REDES -->
+    <section class="redes">
+        <h2>Síguenos</h2>
+
+        <div class="iconos">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <img src="imagenes/instagram.png" alt="Instagram">
+            </a>
+
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <img src="imagenes/facebook.png" alt="Facebook">
+            </a>
+
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                <img src="imagenes/x.png" alt="X">
+            </a>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto">
+        <h2>Comunícate</h2>
+
+        <div class="iconos">
+            <img src="imagenes/whatsapp.png" onclick="irWhatsApp()" alt="WhatsApp" title="Enviar mensaje por WhatsApp">
+            <img src="imagenes/correo.png" onclick="irCorreo()" alt="Correo" title="Enviar correo">
+        </div>
+    </section>
+
+    <script>
+        let imagenes = [
+            "imagenes/producto1.jpg",
+            "imagenes/producto2.jpg",
+            "imagenes/producto3.jpg",
+            "imagenes/producto4.jpg"
+        ];
+
+        let indice = 0;
+
+        function cambiarImagen(direccion) {
+            indice += direccion;
+
+            if (indice < 0) {
+                indice = imagenes.length - 1;
+            }
+
+            if (indice >= imagenes.length) {
+                indice = 0;
+            }
+
+            let img = document.getElementById("imagenSlider");
+
+            if (img) {
+                img.src = imagenes[indice];
+            }
+        }
+
+        function irWhatsApp() {
+            let numero = "573128779750";
+            let url = "https://wa.me/" + numero;
+
+            window.open(url, "_blank"); // 🔥 mejora
+        }
+
+        function irCorreo() {
+            let correo = "cesaribarragonzalez508@gmail.com";
+            window.open("mailto:" + correo);
+        }
+    </script>
+
+</body>
+
+</html>
