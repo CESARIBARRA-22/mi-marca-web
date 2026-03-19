@@ -1,19 +1,32 @@
-const express = require("express");
-const app = express();
+document.getElementById("formRegistro").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-app.use(express.json());
+    let inputs = document.querySelectorAll("#formRegistro input");
 
-let usuarios = [];
+    let usuario = {
+        nombre: inputs[0].value,
+        cedula: inputs[1].value,
+        departamento: inputs[2].value,
+        municipio: inputs[3].value,
+        direccion: inputs[4].value
+    };
 
-app.post("/registro", (req, res) => {
-    usuarios.push(req.body);
-    res.send("Usuario guardado");
-});
+    try {
+        let respuesta = await fetch("http://localhost:3000/registro", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(usuario)
+        });
 
-app.get("/usuarios", (req, res) => {
-    res.json(usuarios);
-});
+        let texto = await respuesta.text();
+        alert(texto);
 
-app.listen(3000, () => {
-    console.log("Servidor corriendo en puerto 3000");
+        this.reset();
+
+    } catch (error) {
+        alert("Error al conectar con el servidor");
+        console.error(error);
+    }
 });
