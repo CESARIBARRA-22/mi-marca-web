@@ -58,3 +58,22 @@ function mostrarSeccion(id) {
 
     document.getElementById(id).style.display = "block";
 }
+// ANIMACIÓN AL HACER SCROLL
+const elementos = document.querySelectorAll(".producto, .registro, .contacto, .carrito");
+
+function mostrarElementos() {
+    let alturaPantalla = window.innerHeight;
+
+    elementos.forEach(el => {
+        let posicion = el.getBoundingClientRect().top;
+
+        if (posicion < alturaPantalla - 100) {
+            el.classList.add("mostrar");
+        }
+    });
+}
+
+window.addEventListener("scroll", mostrarElementos);
+
+// Ejecutar al cargar
+mostrarElementos();
