@@ -43,8 +43,14 @@ body {
 /* HEADER */
 header h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 42px;
     margin: 30px 0;
+    letter-spacing: 2px;
+}
+
+/* TITULOS */
+h1, h2 {
+    text-align: center;
 }
 
 /* FORMULARIO */
@@ -52,13 +58,19 @@ form input, button {
     display: block;
     margin: 10px auto;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 6px;
     border: none;
+    outline: none;
+}
+
+/* INPUT EFECTO */
+form input:focus {
+    box-shadow: 0 0 8px gold;
 }
 
 /* BOTONES */
 button {
-    background: gold;
+    background: linear-gradient(45deg, gold, orange);
     color: black;
     font-weight: bold;
     cursor: pointer;
@@ -66,7 +78,8 @@ button {
 }
 
 button:hover {
-    background: orange;
+    transform: scale(1.05);
+    background: linear-gradient(45deg, orange, gold);
 }
 
 /* PRODUCTOS */
@@ -88,7 +101,8 @@ button:hover {
 }
 
 .producto:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255,215,0,0.4);
 }
 
 .producto img {
@@ -102,30 +116,7 @@ button:hover {
     margin: 40px 0;
 }
 
-.iconos {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.iconos img {
-    width: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.iconos img:hover {
-    transform: scale(1.2);
-}
-
-/* LINKS */
-a {
-    color: white;
-    text-decoration: none;
-}
-h1, h2 {
-    text-align: center;
-}
+/* ICONOS (OPTIMIZADO - sin duplicados) */
 .iconos {
     display: flex;
     justify-content: center;
@@ -137,6 +128,17 @@ h1, h2 {
     width: 50px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.iconos img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px gold);
+}
+
+/* LINKS */
+a {
+    color: white;
+    text-decoration: none;
 }
 
 .iconos img:hover {
