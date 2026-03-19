@@ -126,3 +126,19 @@ a {
 h1, h2 {
     text-align: center;
 }
+.iconos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.iconos img {
+    width: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.iconos img:hover {
+    transform: scale(1.2);
+}
