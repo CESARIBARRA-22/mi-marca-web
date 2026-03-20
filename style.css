@@ -16,6 +16,17 @@ body {
     position: relative;
 }
 
+/* 🔥 MARCA NEÓN */
+.marca {
+    position: absolute;
+    left: 100px;
+    top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 20px orange;
+}
+
 .navbar img {
     width: 70px;
 }
@@ -41,12 +52,53 @@ body {
     color: gold;
 }
 
-/* HEADER */
+/* 🔽 DROPDOWN PRO (CORREGIDO BIEN) */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px; /* 🔥 BAJA HACIA ABAJO */
+    left: 0;
+    background: #111;
+    list-style: none;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 160px;
+    box-shadow: 0 0 15px rgba(255,215,0,0.3);
+}
+
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 8px;
+    display: block;
+    transition: 0.3s;
+}
+
+/* ✨ EFECTO ILUMINADO */
+.dropdown-menu a:hover {
+    color: gold;
+    text-shadow: 0 0 8px gold;
+}
+
+/* 🔥 ACTIVACIÓN */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* HEADER 🔥 MEJORADO */
 header h1 {
     text-align: center;
-    font-size: 42px;
-    margin: 30px 0;
+    font-size: 30px;
+    margin: 20px 0;
     letter-spacing: 2px;
+    text-shadow: 0 0 10px gold;
 }
 
 /* TITULOS */
@@ -154,43 +206,7 @@ a {
     transform: translateY(0);
 }
 
-/* 🔽 DROPDOWN MEJORADO (PRO) */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: #000; /* 🔥 NEGRO */
-    list-style: none;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255,215,0,0.5);
-}
-
-.dropdown-menu li {
-    margin: 5px 0;
-}
-
-.dropdown-menu a {
-    color: white;
-    padding: 8px;
-    display: block;
-    transition: 0.3s;
-}
-
-/* ✨ EFECTO ILUMINADO */
-.dropdown-menu a:hover {
-    color: gold;
-    text-shadow: 0 0 8px gold;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-/* 🔥 CARRITO ABAJO IZQUIERDA */
+/* 🔥 CARRITO FIJO */
 .carrito-fijo {
     position: fixed;
     bottom: 80px;
@@ -223,7 +239,7 @@ a {
     color: black;
 }
 
-/* 💰 ANIMACIÓN TOTAL */
+/* 💰 TOTAL */
 .total-animado {
     font-weight: bold;
     transition: transform 0.3s;
@@ -233,7 +249,7 @@ a {
     transform: scale(1.3);
 }
 
-/* 🌠 ESTRELLA FUGAZ */
+/* 🌠 ESTRELLA */
 .estrella {
     position: fixed;
     width: 20px;
@@ -249,7 +265,7 @@ a {
     100% { transform: scale(0.2) translate(200px,-200px); opacity:0; }
 }
 
-/* 🛒 DISEÑO PREMIUM DEL CARRITO (AGREGADO) */
+/* 🛒 CARRITO PRO */
 .carrito {
     background: #111;
     border-radius: 20px;
@@ -279,13 +295,9 @@ a {
     border-radius: 5px;
 }
 
-@keyframes estrellaAnim {
-    0% { transform: scale(1) translate(0,0); opacity:1; }
-    100% { transform: scale(0.2) translate(200px,-200px); opacity:0; }
-}
+/* 🔥 TITULO EXTRA */
 .titulo-pro {
-    font-family: 'Poppins', sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     letter-spacing: 3px;
     text-shadow: 0 0 10px gold;
 }
