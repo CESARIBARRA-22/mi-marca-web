@@ -20,9 +20,45 @@ document.getElementById("formRegistro")?.addEventListener("submit", function (e)
 });
 
 
-// 🛒 VARIABLES CARRITO
-let carrito = [];
-let total = 0;
+// 🛒 VARIABLES CARRITO (CON GUARDADO)
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let total = JSON.parse(localStorage.getItem("total")) || 0;
+
+
+// 💾 GUARDAR
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("total", total);
+}
+
+
+// 🔄 ACTUALIZAR UI
+function actualizarCarritoUI() {
+    let lista = document.getElementById("listaCarrito");
+
+    if (lista) {
+        lista.innerHTML = carrito.map((item, i) => `
+            <li>
+                ${item.nombre} - $${item.precio}
+                <button onclick="eliminarProducto(${i})">❌</button>
+            </li>
+        `).join("");
+    }
+
+    let totalSpan = document.getElementById("total");
+    if (totalSpan) {
+        totalSpan.innerText = total;
+    }
+
+    let contador = document.getElementById("contadorCarrito");
+    if (contador) {
+        contador.innerText = carrito.length;
+
+        // animación tipo app
+        contador.classList.add("animar-contador");
+        setTimeout(() => contador.classList.remove("animar-contador"), 300);
+    }
+}
 
 
 // 🌠 AÑADIR CON ANIMACIÓN
@@ -30,7 +66,6 @@ function agregarConAnimacion(boton, nombre, precio) {
     let img = boton.parentElement.querySelector("img");
     let rect = img.getBoundingClientRect();
 
-    // estrella fugaz
     let estrella = document.createElement("div");
     estrella.classList.add("estrella");
     estrella.style.left = rect.left + "px";
@@ -48,10 +83,17 @@ function añadirAlCarrito(nombre, precio) {
     carrito.push({nombre, precio});
     total += precio;
 
+    guardarCarrito(); // 🔥 NUEVO
+
     // actualizar lista
     let lista = document.getElementById("listaCarrito");
     if (lista) {
-        lista.innerHTML = carrito.map(item => `<li>${item.nombre} - $${item.precio}</li>`).join("");
+        lista.innerHTML = carrito.map((item, i) => `
+            <li>
+                ${item.nombre} - $${item.precio}
+                <button onclick="eliminarProducto(${i})">❌</button>
+            </li>
+        `).join("");
     }
 
     // animación total
@@ -66,7 +108,20 @@ function añadirAlCarrito(nombre, precio) {
     let contador = document.getElementById("contadorCarrito");
     if (contador) {
         contador.innerText = carrito.length;
+
+        contador.classList.add("animar-contador");
+        setTimeout(() => contador.classList.remove("animar-contador"), 300);
     }
+}
+
+
+// ❌ ELIMINAR PRODUCTO (NUEVO)
+function eliminarProducto(index) {
+    total -= carrito[index].precio;
+    carrito.splice(index, 1);
+
+    guardarCarrito();
+    actualizarCarritoUI();
 }
 
 
@@ -138,6 +193,14 @@ function mostrarElementos() {
         }
     });
 }
+
+window.addEventListener("scroll", mostrarElementos);
+
+// ejecutar al cargar
+mostrarElementos();
+
+// 🔥 CARGAR CARRITO AL INICIAR (NUEVO)
+window.addEventListener("load", actualizarCarritoUI);
 
 window.addEventListener("scroll", mostrarElementos);
 
