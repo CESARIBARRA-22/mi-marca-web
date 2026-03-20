@@ -1,7 +1,8 @@
 # robots.txt para GitHub Pages - Chocofest
 
+# Permite que todos los motores de búsqueda indexen todo tu sitio
 User-agent: *
 Allow: /
 
-# Ruta de tu sitemap (asegúrate de que exista y tenga este nombre)
+# Ruta de tu sitemap
 Sitemap: https://cesaribarra-22.github.io/mi-marca-web/sitemap.xml
