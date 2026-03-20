@@ -111,7 +111,7 @@ function comprarWhatsApp(producto, imagen) {
 }
 
 
-// 📲 BOTÓN WHATSAPP
+// 📲 BOTÓN WHATSAPP (CORREGIDO PRO)
 function irWhatsApp() {
     let numero = "573128779750";
     let mensaje = "Hola, quiero información sobre los productos 🍫";
@@ -121,27 +121,7 @@ function irWhatsApp() {
     window.open(url, "_blank");
 }
 
-
-// 📧 🔥 CORREO (ARREGLADO PRO)
-function irCorreo() {
-    let correo = "cesaribarragonzalez508@gmail.com";
-    let asunto = "Consulta sobre productos Chocofest";
-    let mensaje = "Hola, quiero más información sobre sus productos 🍫";
-
-    let gmailURL = "https://mail.google.com/mail/?view=cm&fs=1"
-        + "&to=" + correo
-        + "&su=" + encodeURIComponent(asunto)
-        + "&body=" + encodeURIComponent(mensaje);
-
-    let nuevaVentana = window.open(gmailURL, "_blank");
-
-    // 🔥 respaldo si el navegador bloquea
-    if (!nuevaVentana) {
-        window.location.href = gmailURL;
-    }
-}
-
-
+ let gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${correo}&su=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
 // 🛒 ENVIAR PEDIDO
 function enviarPedido() {
     let mensaje = "Hola quiero comprar:\n";
