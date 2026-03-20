@@ -49,7 +49,6 @@ function actualizarCarritoUI() {
     if (totalSpan) {
         totalSpan.innerText = total;
 
-        // animación al cargar
         totalSpan.classList.add("animar");
         setTimeout(() => totalSpan.classList.remove("animar"), 300);
     }
@@ -58,7 +57,6 @@ function actualizarCarritoUI() {
     if (contador) {
         contador.innerText = carrito.length;
 
-        // animación tipo app
         contador.classList.add("animar-contador");
         setTimeout(() => contador.classList.remove("animar-contador"), 300);
     }
@@ -88,7 +86,6 @@ function añadirAlCarrito(nombre, precio) {
     total += precio;
 
     guardarCarrito();
-
     actualizarCarritoUI();
 }
 
@@ -103,7 +100,7 @@ function eliminarProducto(index) {
 }
 
 
-// 📲 WHATSAPP
+// 📲 WHATSAPP PRODUCTOS
 function comprarWhatsApp(producto, imagen) {
     let numero = "573128779750";
     let urlImagen = window.location.origin + "/" + imagen;
@@ -113,12 +110,27 @@ function comprarWhatsApp(producto, imagen) {
     window.open("https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje));
 }
 
+
+// 📲 BOTÓN WHATSAPP (CORREGIDO PRO)
 function irWhatsApp() {
-    window.open("https://wa.me/573128779750");
+    let numero = "573128779750";
+    let mensaje = "Hola, quiero información sobre los productos 🍫";
+
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
 }
 
+
+// 📧 BOTÓN CORREO (CORREGIDO PRO)
 function irCorreo() {
-    window.open("mailto:cesaribarragonzalez508@gmail.com");
+    let correo = "cesaribarragonzalez508@gmail.com";
+    let asunto = "Consulta sobre productos Chocofest";
+    let mensaje = "Hola, quiero más información sobre sus productos.";
+
+    let url = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+
+    window.open(url);
 }
 
 
@@ -136,7 +148,7 @@ function enviarPedido() {
 }
 
 
-// 🔥 DROPDOWN CLICK (NUEVO PRO)
+// 🔥 DROPDOWN CLICK
 document.querySelectorAll(".dropdown > a").forEach(menu => {
     menu.addEventListener("click", function(e){
         e.preventDefault();
@@ -169,25 +181,3 @@ window.addEventListener("load", () => {
     actualizarCarritoUI();
     mostrarElementos();
 });
-// 📲 BOTÓN WHATSAPP
-function irWhatsApp() {
-    let numero = "573128779750";
-
-    let mensaje = "Hola, quiero información sobre los productos 🍫";
-
-    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
-
-    window.open(url, "_blank");
-}
-
-
-// 📧 BOTÓN CORREO
-function irCorreo() {
-    let correo = "cesaribarragonzalez508@gmail.com";
-    let asunto = "Consulta sobre productos Chocofest";
-    let mensaje = "Hola, quiero más información sobre sus productos.";
-
-    let url = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
-
-    window.open(url);
-}
