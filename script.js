@@ -121,16 +121,7 @@ function irWhatsApp() {
     window.open(url, "_blank");
 }
 
-function irCorreo() {
-    let correo = "cesaribarragonzalez508@gmail.com";
-    let asunto = "Consulta sobre productos Chocofest";
-    let mensaje = "Hola, quiero más información sobre sus productos.";
-
-    let gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${correo}&su=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
-
-    window.open(gmailURL, "_blank");
-}
-
+ let gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${correo}&su=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
 // 🛒 ENVIAR PEDIDO
 function enviarPedido() {
     let mensaje = "Hola quiero comprar:\n";
