@@ -132,6 +132,16 @@ function irCorreo() {
     window.open(url, "_blank");
 }
 
+function irCorreo() {
+    let correo = "cesaribarragonzalez508@gmail.com";
+    let asunto = "Consulta sobre productos Chocofest";
+    let mensaje = "Hola, quiero más información sobre sus productos.";
+
+    let mailtoLink = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+
+    // 🔥 FORZAR APERTURA REAL
+    window.location.href = mailtoLink;
+}
 
 // 🛒 ENVIAR PEDIDO
 function enviarPedido() {
