@@ -169,3 +169,25 @@ window.addEventListener("load", () => {
     actualizarCarritoUI();
     mostrarElementos();
 });
+// 📲 BOTÓN WHATSAPP
+function irWhatsApp() {
+    let numero = "573128779750";
+
+    let mensaje = "Hola, quiero información sobre los productos 🍫";
+
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+}
+
+
+// 📧 BOTÓN CORREO
+function irCorreo() {
+    let correo = "cesaribarragonzalez508@gmail.com";
+    let asunto = "Consulta sobre productos Chocofest";
+    let mensaje = "Hola, quiero más información sobre sus productos.";
+
+    let url = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+
+    window.open(url);
+}
