@@ -60,7 +60,7 @@ body {
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 40px; /* 🔥 BAJA HACIA ABAJO */
+    top: 40px;
     left: 0;
     background: #111;
     list-style: none;
@@ -300,4 +300,66 @@ a {
     font-size: 28px;
     letter-spacing: 3px;
     text-shadow: 0 0 10px gold;
+}
+
+/* ===================== */
+/* 🔥 MEJORAS AGREGADAS */
+/* ===================== */
+
+/* NEÓN PRO ANIMADO */
+.marca {
+    animation: neon 1.5s infinite alternate;
+}
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 5px gold, 0 0 10px gold;
+    }
+    to {
+        text-shadow: 0 0 10px gold, 0 0 20px orange, 0 0 40px orange;
+    }
+}
+
+/* DROPDOWN SUAVE */
+.dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* EFECTO EXTRA */
+.dropdown-menu a:hover {
+    background: rgba(255,215,0,0.1);
+    border-radius: 5px;
+}
+
+/* CONTADOR MÁS PRO */
+#contadorCarrito.animar-contador {
+    transform: scale(1.5);
+}
+
+/* TOTAL MÁS LLAMATIVO */
+.total-animado.animar {
+    transform: scale(1.4);
+    color: gold;
+}
+
+/* ESTRELLA MÁS BONITA */
+.estrella {
+    background: radial-gradient(circle, gold, orange);
+}
+
+/* HOVER CARRITO */
+.carrito-icono2:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px gold);
+    cursor: pointer;
 }
