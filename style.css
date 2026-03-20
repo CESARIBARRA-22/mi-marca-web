@@ -325,10 +325,9 @@ a {
     text-shadow: 0 0 10px gold;
 }
 .carrito p {
-    margin-top: 25px;
+    margin-top: 40px;
     text-align: right;
     font-size: 18px;
-}
-.carrito p {
-    margin-top: 40px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
 }
