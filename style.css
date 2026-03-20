@@ -25,6 +25,16 @@ body {
     font-weight: bold;
     color: white;
     text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 20px orange;
+    animation: neon 1.5s infinite alternate;
+}
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 5px gold, 0 0 10px gold;
+    }
+    to {
+        text-shadow: 0 0 10px gold, 0 0 20px orange, 0 0 40px orange;
+    }
 }
 
 .navbar img {
@@ -52,13 +62,12 @@ body {
     color: gold;
 }
 
-/* 🔽 DROPDOWN PRO (CORREGIDO BIEN) */
+/* 🔽 DROPDOWN PRO CORREGIDO */
 .dropdown {
     position: relative;
 }
 
 .dropdown-menu {
-    display: none;
     position: absolute;
     top: 40px;
     left: 0;
@@ -68,6 +77,12 @@ body {
     border-radius: 10px;
     min-width: 160px;
     box-shadow: 0 0 15px rgba(255,215,0,0.3);
+
+    /* 🔥 ANIMACIÓN PRO */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
 .dropdown-menu li {
@@ -81,18 +96,22 @@ body {
     transition: 0.3s;
 }
 
-/* ✨ EFECTO ILUMINADO */
+/* ✨ EFECTOS */
 .dropdown-menu a:hover {
     color: gold;
     text-shadow: 0 0 8px gold;
+    background: rgba(255,215,0,0.1);
+    border-radius: 5px;
 }
 
 /* 🔥 ACTIVACIÓN */
 .dropdown:hover .dropdown-menu {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-/* HEADER 🔥 MEJORADO */
+/* HEADER */
 header h1 {
     text-align: center;
     font-size: 30px;
@@ -206,7 +225,7 @@ a {
     transform: translateY(0);
 }
 
-/* 🔥 CARRITO FIJO */
+/* 🔥 CARRITO */
 .carrito-fijo {
     position: fixed;
     bottom: 80px;
@@ -218,7 +237,13 @@ a {
     width: 40px;
 }
 
-/* 🔢 CONTADOR */
+.carrito-icono2:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px gold);
+    cursor: pointer;
+}
+
+/* CONTADOR */
 #contadorCarrito {
     position: absolute;
     top: -10px;
@@ -232,29 +257,29 @@ a {
     transition: 0.3s;
 }
 
-/* 🔥 ANIMACIÓN CONTADOR */
 #contadorCarrito.animar-contador {
-    transform: scale(1.4);
+    transform: scale(1.5);
     background: gold;
     color: black;
 }
 
-/* 💰 TOTAL */
+/* TOTAL */
 .total-animado {
     font-weight: bold;
     transition: transform 0.3s;
 }
 
 .total-animado.animar {
-    transform: scale(1.3);
+    transform: scale(1.4);
+    color: gold;
 }
 
-/* 🌠 ESTRELLA */
+/* ESTRELLA */
 .estrella {
     position: fixed;
     width: 20px;
     height: 20px;
-    background: gold;
+    background: radial-gradient(circle, gold, orange);
     border-radius: 50%;
     z-index: 9999;
     animation: estrellaAnim 0.8s ease forwards;
@@ -295,71 +320,9 @@ a {
     border-radius: 5px;
 }
 
-/* 🔥 TITULO EXTRA */
+/* TITULO */
 .titulo-pro {
     font-size: 28px;
     letter-spacing: 3px;
     text-shadow: 0 0 10px gold;
-}
-
-/* ===================== */
-/* 🔥 MEJORAS AGREGADAS */
-/* ===================== */
-
-/* NEÓN PRO ANIMADO */
-.marca {
-    animation: neon 1.5s infinite alternate;
-}
-
-@keyframes neon {
-    from {
-        text-shadow: 0 0 5px gold, 0 0 10px gold;
-    }
-    to {
-        text-shadow: 0 0 10px gold, 0 0 20px orange, 0 0 40px orange;
-    }
-}
-
-/* DROPDOWN SUAVE */
-.dropdown-menu {
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-}
-
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* EFECTO EXTRA */
-.dropdown-menu a:hover {
-    background: rgba(255,215,0,0.1);
-    border-radius: 5px;
-}
-
-/* CONTADOR MÁS PRO */
-#contadorCarrito.animar-contador {
-    transform: scale(1.5);
-}
-
-/* TOTAL MÁS LLAMATIVO */
-.total-animado.animar {
-    transform: scale(1.4);
-    color: gold;
-}
-
-/* ESTRELLA MÁS BONITA */
-.estrella {
-    background: radial-gradient(circle, gold, orange);
-}
-
-/* HOVER CARRITO */
-.carrito-icono2:hover {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 10px gold);
-    cursor: pointer;
 }
