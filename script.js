@@ -48,6 +48,10 @@ function actualizarCarritoUI() {
     let totalSpan = document.getElementById("total");
     if (totalSpan) {
         totalSpan.innerText = total;
+
+        // animación al cargar
+        totalSpan.classList.add("animar");
+        setTimeout(() => totalSpan.classList.remove("animar"), 300);
     }
 
     let contador = document.getElementById("contadorCarrito");
@@ -83,39 +87,13 @@ function añadirAlCarrito(nombre, precio) {
     carrito.push({nombre, precio});
     total += precio;
 
-    guardarCarrito(); // 🔥 NUEVO
+    guardarCarrito();
 
-    // actualizar lista
-    let lista = document.getElementById("listaCarrito");
-    if (lista) {
-        lista.innerHTML = carrito.map((item, i) => `
-            <li>
-                ${item.nombre} - $${item.precio}
-                <button onclick="eliminarProducto(${i})">❌</button>
-            </li>
-        `).join("");
-    }
-
-    // animación total
-    let totalSpan = document.getElementById("total");
-    if (totalSpan) {
-        totalSpan.innerText = total;
-        totalSpan.classList.add("animar");
-        setTimeout(() => totalSpan.classList.remove("animar"), 300);
-    }
-
-    // contador carrito
-    let contador = document.getElementById("contadorCarrito");
-    if (contador) {
-        contador.innerText = carrito.length;
-
-        contador.classList.add("animar-contador");
-        setTimeout(() => contador.classList.remove("animar-contador"), 300);
-    }
+    actualizarCarritoUI();
 }
 
 
-// ❌ ELIMINAR PRODUCTO (NUEVO)
+// ❌ ELIMINAR PRODUCTO
 function eliminarProducto(index) {
     total -= carrito[index].precio;
     carrito.splice(index, 1);
@@ -125,7 +103,7 @@ function eliminarProducto(index) {
 }
 
 
-// 📲 WHATSAPP PRODUCTOS
+// 📲 WHATSAPP
 function comprarWhatsApp(producto, imagen) {
     let numero = "573128779750";
     let urlImagen = window.location.origin + "/" + imagen;
@@ -135,15 +113,10 @@ function comprarWhatsApp(producto, imagen) {
     window.open("https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje));
 }
 
-
-// 📲 BOTÓN WHATSAPP CONTACTO
 function irWhatsApp() {
-    let numero = "573128779750";
-    window.open("https://wa.me/" + numero);
+    window.open("https://wa.me/573128779750");
 }
 
-
-// 📧 CORREO
 function irCorreo() {
     window.open("mailto:cesaribarragonzalez508@gmail.com");
 }
@@ -163,23 +136,17 @@ function enviarPedido() {
 }
 
 
-// 🔄 NAVEGACIÓN ENTRE SECCIONES
-function mostrarSeccion(id) {
-
-    let secciones = ["inicio", "menuProductos", "chocolate", "contacto"];
-
-    secciones.forEach(sec => {
-        let elemento = document.getElementById(sec);
-        if (elemento) {
-            elemento.style.display = "none";
-        }
+// 🔥 DROPDOWN CLICK (NUEVO PRO)
+document.querySelectorAll(".dropdown > a").forEach(menu => {
+    menu.addEventListener("click", function(e){
+        e.preventDefault();
+        let submenu = this.nextElementSibling;
+        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
-
-    document.getElementById(id).style.display = "block";
-}
+});
 
 
-// ✨ ANIMACIÓN SCROLL
+// ✨ SCROLL
 const elementos = document.querySelectorAll(".producto, .registro, .contacto, .carrito");
 
 function mostrarElementos() {
@@ -196,13 +163,9 @@ function mostrarElementos() {
 
 window.addEventListener("scroll", mostrarElementos);
 
-// ejecutar al cargar
-mostrarElementos();
 
-// 🔥 CARGAR CARRITO AL INICIAR (NUEVO)
-window.addEventListener("load", actualizarCarritoUI);
-
-window.addEventListener("scroll", mostrarElementos);
-
-// ejecutar al cargar
-mostrarElementos();
+// 🔥 CARGA INICIAL
+window.addEventListener("load", () => {
+    actualizarCarritoUI();
+    mostrarElementos();
+});
