@@ -121,7 +121,28 @@ function irWhatsApp() {
     window.open(url, "_blank");
 }
 
- let gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${correo}&su=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+
+function irCorreo() {
+    let correo = "cesaribarragonzalez508@gmail.com";
+    let asunto = "Consulta sobre productos Chocofest";
+    let mensaje = "Hola, quiero más información sobre sus productos.";
+
+    let url = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+}
+
+function irCorreo() {
+    let correo = "cesaribarragonzalez508@gmail.com";
+    let asunto = "Consulta sobre productos Chocofest";
+    let mensaje = "Hola, quiero más información sobre sus productos.";
+
+    let mailtoLink = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+
+    // 🔥 FORZAR APERTURA REAL
+    window.location.href = mailtoLink;
+}
+
 // 🛒 ENVIAR PEDIDO
 function enviarPedido() {
     let mensaje = "Hola quiero comprar:\n";
