@@ -32,7 +32,7 @@ function guardarCarrito() {
 }
 
 
-// 🔄 ACTUALIZAR UI
+// 🔄 ACTUALIZAR UI (MEJORADO CON CANTIDADES)
 function actualizarCarritoUI() {
     let lista = document.getElementById("listaCarrito");
 
@@ -40,7 +40,12 @@ function actualizarCarritoUI() {
         lista.innerHTML = carrito.map((item, i) => `
             <li>
                 ${item.nombre} - $${item.precio}
-                <button onclick="eliminarProducto(${i})">❌</button>
+                <div>
+                    <button onclick="cambiarCantidad(${i}, -1)">➖</button>
+                    <span>${item.cantidad || 1}</span>
+                    <button onclick="cambiarCantidad(${i}, 1)">➕</button>
+                    <button onclick="eliminarProducto(${i})">❌</button>
+                </div>
             </li>
         `).join("");
     }
@@ -80,10 +85,34 @@ function agregarConAnimacion(boton, nombre, precio) {
 }
 
 
-// 🛒 AÑADIR AL CARRITO
+// 🛒 AÑADIR AL CARRITO (CON CANTIDAD)
 function añadirAlCarrito(nombre, precio) {
-    carrito.push({nombre, precio});
-    total += precio;
+
+    let existente = carrito.find(p => p.nombre === nombre);
+
+    if (existente) {
+        existente.cantidad = (existente.cantidad || 1) + 1;
+    } else {
+        carrito.push({nombre, precio, cantidad: 1});
+    }
+
+    total = carrito.reduce((acc, item) => acc + (item.precio * (item.cantidad || 1)), 0);
+
+    guardarCarrito();
+    actualizarCarritoUI();
+}
+
+
+// ➕➖ CAMBIAR CANTIDAD (NUEVO)
+function cambiarCantidad(index, cambio) {
+    carrito[index].cantidad = (carrito[index].cantidad || 1) + cambio;
+
+    if (carrito[index].cantidad <= 0) {
+        eliminarProducto(index);
+        return;
+    }
+
+    total = carrito.reduce((acc, item) => acc + (item.precio * (item.cantidad || 1)), 0);
 
     guardarCarrito();
     actualizarCarritoUI();
@@ -92,8 +121,9 @@ function añadirAlCarrito(nombre, precio) {
 
 // ❌ ELIMINAR PRODUCTO
 function eliminarProducto(index) {
-    total -= carrito[index].precio;
     carrito.splice(index, 1);
+
+    total = carrito.reduce((acc, item) => acc + (item.precio * (item.cantidad || 1)), 0);
 
     guardarCarrito();
     actualizarCarritoUI();
@@ -111,7 +141,7 @@ function comprarWhatsApp(producto, imagen) {
 }
 
 
-// 📲 BOTÓN WHATSAPP (CORREGIDO PRO)
+// 📲 BOTÓN WHATSAPP
 function irWhatsApp() {
     let numero = "573128779750";
     let mensaje = "Hola, quiero información sobre los productos 🍫";
@@ -122,6 +152,7 @@ function irWhatsApp() {
 }
 
 
+// 📧 BOTÓN CORREO (FIX FINAL)
 function irCorreo() {
     let correo = "cesaribarragonzalez508@gmail.com";
     let asunto = "Consulta sobre productos Chocofest";
@@ -138,11 +169,26 @@ function enviarPedido() {
     let mensaje = "Hola quiero comprar:\n";
 
     carrito.forEach(p => {
-        mensaje += `${p.nombre} - $${p.precio}\n`;
+        mensaje += `${p.nombre} x${p.cantidad || 1} - $${p.precio}\n`;
     });
 
     mensaje += `Total: $${total}`;
 
+    window.open(`https://wa.me/573128779750?text=${encodeURIComponent(mensaje)}`);
+}
+
+
+// 🔥 PANEL LATERAL (NUEVO)
+let botonCarrito = document.getElementById("abrirCarrito");
+
+botonCarrito?.addEventListener("click", () => {
+    document.getElementById("panelCarrito").classList.toggle("activo");
+});
+
+
+// 🔥 BOTÓN COMPRA DIRECTA (NUEVO)
+function comprarDirecto(nombre, precio) {
+    let mensaje = `Hola, quiero comprar ${nombre} por $${precio}`;
     window.open(`https://wa.me/573128779750?text=${encodeURIComponent(mensaje)}`);
 }
 
