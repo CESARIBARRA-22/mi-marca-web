@@ -36,6 +36,54 @@
             right: 20px;
             top: 10px;
         }
+
+        /* 🔥 NUEVO CARRITO ABAJO */
+        .carrito-fijo {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+        }
+
+        .carrito-icono2 {
+            width: 40px;
+        }
+
+        #contadorCarrito {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        /* 🔥 ANIMACIÓN TOTAL */
+        .total-animado {
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .total-animado.animar {
+            transform: scale(1.3);
+        }
+
+        /* 🌠 ESTRELLA */
+        .estrella {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: gold;
+            border-radius: 50%;
+            z-index: 9999;
+            animation: estrellaAnim 0.8s ease forwards;
+        }
+
+        @keyframes estrellaAnim {
+            0% { transform: scale(1) translate(0,0); opacity:1; }
+            100% { transform: scale(0.2) translate(200px,-200px); opacity:0; }
+        }
     </style>
 </head>
 
@@ -47,7 +95,6 @@
     <ul>
         <li><a href="#">Inicio</a></li>
 
-        <!-- MENU DESPLEGABLE -->
         <li class="dropdown">
             <a href="#">Productos</a>
             <ul class="dropdown-menu">
@@ -61,7 +108,6 @@
         <li><a href="contacto.html">Contacto</a></li>
     </ul>
 
-    <!-- ICONO CARRITO -->
     <div class="carrito-icono">
         <img src="imagenes/carrito.png" width="40">
     </div>
@@ -74,77 +120,55 @@
 <section class="productos">
     <h2>Productos</h2>
 
-    <!-- PRODUCTO 1 -->
+    <!-- PRODUCTOS (igual, no se modifican) -->
     <div class="producto">
         <img src="imagenes/producto1.jpg" alt="Producto 1">
         <h3>Producto 1</h3>
         <p>$20.000</p>
-
-        <a href="producto1.html">
-            <button class="boton-rojo">Ver producto</button>
-        </a>
-
-        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 1', 20000)">
-            Añadir al carrito
-        </button>
+        <a href="producto1.html"><button class="boton-rojo">Ver producto</button></a>
+        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 1', 20000)">Añadir al carrito</button>
     </div>
 
-    <!-- PRODUCTO 2 -->
     <div class="producto">
         <img src="imagenes/producto2.jpg" alt="Producto 2">
         <h3>Producto 2</h3>
         <p>$25.000</p>
-
-        <a href="producto2.html">
-            <button class="boton-rojo">Ver producto</button>
-        </a>
-
-        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 2', 25000)">
-            Añadir al carrito
-        </button>
+        <a href="producto2.html"><button class="boton-rojo">Ver producto</button></a>
+        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 2', 25000)">Añadir al carrito</button>
     </div>
 
-    <!-- PRODUCTO 3 -->
     <div class="producto">
         <img src="imagenes/producto3.jpg" alt="Producto 3">
         <h3>Producto 3</h3>
         <p>$30.000</p>
-
-        <a href="producto3.html">
-            <button class="boton-rojo">Ver producto</button>
-        </a>
-
-        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 3', 30000)">
-            Añadir al carrito
-        </button>
+        <a href="producto3.html"><button class="boton-rojo">Ver producto</button></a>
+        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 3', 30000)">Añadir al carrito</button>
     </div>
 
-    <!-- PRODUCTO 4 -->
     <div class="producto">
         <img src="imagenes/producto4.jpg" alt="Producto 4">
         <h3>Producto 4</h3>
         <p>$35.000</p>
-
-        <a href="producto4.html">
-            <button class="boton-rojo">Ver producto</button>
-        </a>
-
-        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 4', 35000)">
-            Añadir al carrito
-        </button>
+        <a href="producto4.html"><button class="boton-rojo">Ver producto</button></a>
+        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 4', 35000)">Añadir al carrito</button>
     </div>
-
 </section>
 
 <section class="carrito">
     <h2>Carrito</h2>
 
     <div class="carrito-container">
-        <img src="imagenes/carrito.png" alt="Carrito">
+        
+        <!-- 🔥 CARRITO FIJO -->
+        <div class="carrito-fijo">
+            <img src="imagenes/carrito.png" class="carrito-icono2">
+            <span id="contadorCarrito">0</span>
+        </div>
+
         <ul id="listaCarrito"></ul>
     </div>
 
-    <p>Total: $<span id="total">0</span></p>
+    <p>Total: $<span id="total" class="total-animado">0</span></p>
 
     <button onclick="enviarPedido()" class="boton-rojo">
         Enviar pedido por WhatsApp
@@ -165,30 +189,15 @@ let total = 0;
 
 function agregarConAnimacion(boton, nombre, precio) {
     let img = boton.parentElement.querySelector("img");
-
-    let clon = img.cloneNode(true);
-    clon.style.position = "absolute";
-    clon.style.zIndex = "1000";
-    clon.style.width = "80px";
-    clon.style.transition = "all 1s ease";
-
     let rect = img.getBoundingClientRect();
-    clon.style.left = rect.left + "px";
-    clon.style.top = rect.top + "px";
 
-    document.body.appendChild(clon);
-
-    let carritoIcono = document.querySelector(".carrito-icono");
-    let destino = carritoIcono.getBoundingClientRect();
-
-    setTimeout(() => {
-        clon.style.left = destino.left + "px";
-        clon.style.top = destino.top + "px";
-        clon.style.opacity = "0";
-        clon.style.transform = "scale(0.3)";
-    }, 10);
-
-    setTimeout(() => clon.remove(), 1000);
+    // 🌠 estrella
+    let estrella = document.createElement("div");
+    estrella.classList.add("estrella");
+    estrella.style.left = rect.left + "px";
+    estrella.style.top = rect.top + "px";
+    document.body.appendChild(estrella);
+    setTimeout(() => estrella.remove(), 800);
 
     añadirAlCarrito(nombre, precio);
 }
@@ -200,7 +209,12 @@ function añadirAlCarrito(nombre, precio) {
     let lista = document.getElementById("listaCarrito");
     lista.innerHTML = carrito.map(item => `<li>${item.nombre} - $${item.precio}</li>`).join("");
 
-    document.getElementById("total").innerText = total;
+    let totalSpan = document.getElementById("total");
+    totalSpan.innerText = total;
+    totalSpan.classList.add("animar");
+    setTimeout(() => totalSpan.classList.remove("animar"), 300);
+
+    document.getElementById("contadorCarrito").innerText = carrito.length;
 }
 
 function enviarPedido() {
