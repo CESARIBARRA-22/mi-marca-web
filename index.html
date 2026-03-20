@@ -107,7 +107,6 @@
             color: white;
             text-shadow: 0 0 10px gold;
         }
-
     </style>
 </head>
 
@@ -143,7 +142,7 @@
     <h2>Productos</h2>
 
     <div class="producto">
-        <img src="imagenes/producto1.jpg" alt="Producto 1">
+        <img src="imagenes/producto1.jpg">
         <h3>Producto 1</h3>
         <p>$20.000</p>
         <a href="producto1.html"><button class="boton-rojo">Ver producto</button></a>
@@ -151,7 +150,7 @@
     </div>
 
     <div class="producto">
-        <img src="imagenes/producto2.jpg" alt="Producto 2">
+        <img src="imagenes/producto2.jpg">
         <h3>Producto 2</h3>
         <p>$25.000</p>
         <a href="producto2.html"><button class="boton-rojo">Ver producto</button></a>
@@ -159,7 +158,7 @@
     </div>
 
     <div class="producto">
-        <img src="imagenes/producto3.jpg" alt="Producto 3">
+        <img src="imagenes/producto3.jpg">
         <h3>Producto 3</h3>
         <p>$30.000</p>
         <a href="producto3.html"><button class="boton-rojo">Ver producto</button></a>
@@ -167,7 +166,7 @@
     </div>
 
     <div class="producto">
-        <img src="imagenes/producto4.jpg" alt="Producto 4">
+        <img src="imagenes/producto4.jpg">
         <h3>Producto 4</h3>
         <p>$35.000</p>
         <a href="producto4.html"><button class="boton-rojo">Ver producto</button></a>
@@ -179,7 +178,6 @@
     <h2>Carrito</h2>
 
     <div class="carrito-container">
-        
         <div class="carrito-fijo">
             <img src="imagenes/carrito.png" class="carrito-icono2">
             <span id="contadorCarrito">0</span>
@@ -199,8 +197,8 @@
     <h2>Contacto</h2>
 
     <div class="iconos">
-        <img src="imagenes/whatsapp.png" onclick="irWhatsApp()" alt="WhatsApp">
-        <img src="imagenes/correo.png" onclick="irCorreo()" alt="Correo">
+        <img src="imagenes/whatsapp.png" onclick="irWhatsApp()">
+        <img src="imagenes/correo.png" onclick="irCorreo()">
     </div>
 </section>
 
@@ -222,19 +220,33 @@ function agregarConAnimacion(boton, nombre, precio) {
     añadirAlCarrito(nombre, precio);
 }
 
-function añadirAlCarrito(nombre, precio) {
-    carrito.push({nombre, precio});
-    total += precio;
-
+function renderCarrito() {
     let lista = document.getElementById("listaCarrito");
-    lista.innerHTML = carrito.map(item => `<li>${item.nombre} - $${item.precio}</li>`).join("");
+    lista.innerHTML = carrito.map((item, index) => `
+        <li>
+            ${item.nombre} - $${item.precio}
+            <button onclick="eliminarDelCarrito(${index})" class="boton-rojo">🗑️</button>
+        </li>
+    `).join("");
+
+    document.getElementById("contadorCarrito").innerText = carrito.length;
 
     let totalSpan = document.getElementById("total");
     totalSpan.innerText = total;
     totalSpan.classList.add("animar");
     setTimeout(() => totalSpan.classList.remove("animar"), 300);
+}
 
-    document.getElementById("contadorCarrito").innerText = carrito.length;
+function añadirAlCarrito(nombre, precio) {
+    carrito.push({nombre, precio});
+    total += precio;
+    renderCarrito();
+}
+
+function eliminarDelCarrito(index) {
+    total -= carrito[index].precio;
+    carrito.splice(index, 1);
+    renderCarrito();
 }
 
 function enviarPedido() {
@@ -245,7 +257,6 @@ function enviarPedido() {
     window.open(`https://wa.me/573128779750?text=${encodeURIComponent(mensaje)}`);
 }
 
-/* 🔥 NUEVO: FUNCIONES CONTACTO */
 function irWhatsApp() {
     let numero = "573128779750";
     let mensaje = "Hola, quiero más información sobre Chocofest 🍫";
@@ -260,11 +271,8 @@ function irCorreo() {
 }
 </script>
 
-<script src="script.js"></script>
-
 </body>
 </html>
-
 <script src="script.js"></script>
 
 </body>
