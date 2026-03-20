@@ -324,3 +324,8 @@ a {
     letter-spacing: 3px;
     text-shadow: 0 0 10px gold;
 }
+.carrito p {
+    margin-top: 25px;
+    text-align: right;
+    font-size: 18px;
+}
