@@ -154,7 +154,7 @@ a {
     transform: translateY(0);
 }
 
-/* 🔽 DROPDOWN MEJORADO */
+/* 🔽 DROPDOWN MEJORADO (PRO) */
 .dropdown {
     position: relative;
 }
@@ -162,10 +162,11 @@ a {
 .dropdown-menu {
     display: none;
     position: absolute;
-    background: #1a1a1a;
+    background: #000; /* 🔥 NEGRO */
     list-style: none;
     padding: 10px;
     border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255,215,0,0.5);
 }
 
 .dropdown-menu li {
@@ -174,6 +175,15 @@ a {
 
 .dropdown-menu a {
     color: white;
+    padding: 8px;
+    display: block;
+    transition: 0.3s;
+}
+
+/* ✨ EFECTO ILUMINADO */
+.dropdown-menu a:hover {
+    color: gold;
+    text-shadow: 0 0 8px gold;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -203,6 +213,14 @@ a {
     padding: 5px 10px;
     font-size: 12px;
     font-weight: bold;
+    transition: 0.3s;
+}
+
+/* 🔥 ANIMACIÓN CONTADOR */
+#contadorCarrito.animar-contador {
+    transform: scale(1.4);
+    background: gold;
+    color: black;
 }
 
 /* 💰 ANIMACIÓN TOTAL */
@@ -224,6 +242,41 @@ a {
     border-radius: 50%;
     z-index: 9999;
     animation: estrellaAnim 0.8s ease forwards;
+}
+
+@keyframes estrellaAnim {
+    0% { transform: scale(1) translate(0,0); opacity:1; }
+    100% { transform: scale(0.2) translate(200px,-200px); opacity:0; }
+}
+
+/* 🛒 DISEÑO PREMIUM DEL CARRITO (AGREGADO) */
+.carrito {
+    background: #111;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 30px;
+    box-shadow: 0 0 20px rgba(255,215,0,0.2);
+}
+
+/* ITEMS */
+#listaCarrito li {
+    background: #1a1a1a;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* BOTÓN ELIMINAR */
+#listaCarrito button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 @keyframes estrellaAnim {
