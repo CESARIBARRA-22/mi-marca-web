@@ -21,8 +21,8 @@
 
         .marca {
             position: absolute;
-            left: 100px;
-            top: 20px;
+            left: 120px; /* movido un poco a la derecha */
+            top: 10px;   /* un poco más arriba */
             font-family: 'Orbitron', sans-serif;
             font-size: 20px;
             color: #fff;
@@ -36,6 +36,7 @@
             list-style: none;
             padding: 10px;
             border-radius: 10px;
+            z-index: 100; /* para que siempre quede encima */
         }
 
         .dropdown-menu li a {
@@ -58,10 +59,18 @@
             position: fixed;
             bottom: 80px;
             left: 20px;
+            z-index: 1000;
         }
 
         .carrito-icono2 {
             width: 40px;
+            transition: 0.3s;
+        }
+
+        .carrito-icono2:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 10px gold);
+            cursor: pointer;
         }
 
         #contadorCarrito {
@@ -77,6 +86,10 @@
 
         .total-animado {
             font-weight: bold;
+            font-size: 18px;
+            text-align: right;
+            display: block;
+            margin-top: 20px; /* total más abajo del carrito */
             transition: transform 0.3s;
         }
 
@@ -107,6 +120,32 @@
             color: white;
             text-shadow: 0 0 10px gold;
         }
+
+        /* Animación botones navbar */
+        .navbar a {
+            position: relative;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(255,215,0,0.2);
+            color: gold;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .marca {
+                left: 80px;
+                top: 5px;
+            }
+
+            .navbar ul li {
+                margin: 0 5px;
+            }
+        }
+
     </style>
 </head>
 
@@ -184,13 +223,14 @@
         </div>
 
         <ul id="listaCarrito"></ul>
+
+        <!-- Total movido fuera del carrito-fijo -->
+        <p>Total: $<span id="total" class="total-animado">0</span></p>
+
+        <button onclick="enviarPedido()" class="boton-rojo">
+            Enviar pedido por WhatsApp
+        </button>
     </div>
-
-    <p>Total: $<span id="total" class="total-animado">0</span></p>
-
-    <button onclick="enviarPedido()" class="boton-rojo">
-        Enviar pedido por WhatsApp
-    </button>
 </section>
 
 <section class="contacto">
@@ -253,7 +293,6 @@ function enviarPedido() {
     let mensaje = "Hola quiero comprar:\n";
     carrito.forEach(p => mensaje += `${p.nombre} - $${p.precio}\n`);
     mensaje += `Total: $${total}`;
-
     window.open(`https://wa.me/573128779750?text=${encodeURIComponent(mensaje)}`);
 }
 
@@ -262,22 +301,20 @@ function irWhatsApp() {
     let mensaje = "Hola, quiero más información sobre Chocofest 🍫";
     window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`);
 }
-    
-<button onclick="vaciarCarrito()" class="boton-rojo">
-    Vaciar carrito
-</button>
-    
+
 function irCorreo() {
     let correo = "cesaribarragonzalez508@gmail.com";
     let asunto = "Información Chocofest";
     let cuerpo = "Hola, quiero más información sobre sus productos.";
     window.open(`mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`);
 }
-</script>
 
-</body>
-</html>
-<script src="script.js"></script>
+function vaciarCarrito() {
+    carrito = [];
+    total = 0;
+    renderCarrito();
+}
+</script>
 
 </body>
 </html>
