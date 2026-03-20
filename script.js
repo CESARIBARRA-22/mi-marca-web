@@ -1,5 +1,5 @@
 // FORMULARIO
-document.getElementById("formRegistro").addEventListener("submit", function (e) {
+document.getElementById("formRegistro")?.addEventListener("submit", function (e) {
     e.preventDefault();
 
     let inputs = document.querySelectorAll("#formRegistro input");
@@ -20,7 +20,57 @@ document.getElementById("formRegistro").addEventListener("submit", function (e) 
 });
 
 
-// WHATSAPP PRODUCTOS
+// 🛒 VARIABLES CARRITO
+let carrito = [];
+let total = 0;
+
+
+// 🌠 AÑADIR CON ANIMACIÓN
+function agregarConAnimacion(boton, nombre, precio) {
+    let img = boton.parentElement.querySelector("img");
+    let rect = img.getBoundingClientRect();
+
+    // estrella fugaz
+    let estrella = document.createElement("div");
+    estrella.classList.add("estrella");
+    estrella.style.left = rect.left + "px";
+    estrella.style.top = rect.top + "px";
+    document.body.appendChild(estrella);
+
+    setTimeout(() => estrella.remove(), 800);
+
+    añadirAlCarrito(nombre, precio);
+}
+
+
+// 🛒 AÑADIR AL CARRITO
+function añadirAlCarrito(nombre, precio) {
+    carrito.push({nombre, precio});
+    total += precio;
+
+    // actualizar lista
+    let lista = document.getElementById("listaCarrito");
+    if (lista) {
+        lista.innerHTML = carrito.map(item => `<li>${item.nombre} - $${item.precio}</li>`).join("");
+    }
+
+    // animación total
+    let totalSpan = document.getElementById("total");
+    if (totalSpan) {
+        totalSpan.innerText = total;
+        totalSpan.classList.add("animar");
+        setTimeout(() => totalSpan.classList.remove("animar"), 300);
+    }
+
+    // contador carrito
+    let contador = document.getElementById("contadorCarrito");
+    if (contador) {
+        contador.innerText = carrito.length;
+    }
+}
+
+
+// 📲 WHATSAPP PRODUCTOS
 function comprarWhatsApp(producto, imagen) {
     let numero = "573128779750";
     let urlImagen = window.location.origin + "/" + imagen;
@@ -31,20 +81,34 @@ function comprarWhatsApp(producto, imagen) {
 }
 
 
-// BOTÓN WHATSAPP CONTACTO
+// 📲 BOTÓN WHATSAPP CONTACTO
 function irWhatsApp() {
     let numero = "573128779750";
     window.open("https://wa.me/" + numero);
 }
 
 
-// BOTÓN CORREO (ARREGLADO)
+// 📧 CORREO
 function irCorreo() {
     window.open("mailto:cesaribarragonzalez508@gmail.com");
 }
 
 
-// NAVEGACIÓN ENTRE SECCIONES
+// 🛒 ENVIAR PEDIDO
+function enviarPedido() {
+    let mensaje = "Hola quiero comprar:\n";
+
+    carrito.forEach(p => {
+        mensaje += `${p.nombre} - $${p.precio}\n`;
+    });
+
+    mensaje += `Total: $${total}`;
+
+    window.open(`https://wa.me/573128779750?text=${encodeURIComponent(mensaje)}`);
+}
+
+
+// 🔄 NAVEGACIÓN ENTRE SECCIONES
 function mostrarSeccion(id) {
 
     let secciones = ["inicio", "menuProductos", "chocolate", "contacto"];
@@ -58,7 +122,9 @@ function mostrarSeccion(id) {
 
     document.getElementById(id).style.display = "block";
 }
-// ANIMACIÓN AL HACER SCROLL
+
+
+// ✨ ANIMACIÓN SCROLL
 const elementos = document.querySelectorAll(".producto, .registro, .contacto, .carrito");
 
 function mostrarElementos() {
@@ -75,5 +141,5 @@ function mostrarElementos() {
 
 window.addEventListener("scroll", mostrarElementos);
 
-// Ejecutar al cargar
+// ejecutar al cargar
 mostrarElementos();
