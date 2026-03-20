@@ -150,7 +150,17 @@ a {
     transform: translateY(40px);
     transition: all 0.8s ease;
 }
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    list-style: none;
+    padding: 10px;
+}
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 .mostrar {
     opacity: 1;
     transform: translateY(0);
