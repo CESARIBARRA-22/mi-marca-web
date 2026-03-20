@@ -331,3 +331,9 @@ a {
     border-top: 1px solid #333;
     padding-top: 10px;
 }
+/* MOVER TOTAL MÁS ABAJO */
+.carrito p {
+    margin-top: 60px; /* aquí ajustas el espacio, puedes poner 50px, 70px según te guste */
+    text-align: right;
+    font-size: 18px;
+}
