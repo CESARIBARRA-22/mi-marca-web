@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chocofest - Tienda Oficial</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -19,25 +19,45 @@
             display:block;
         }
 
+        /* 🔥 MARCA NEÓN */
+        .marca {
+            position: absolute;
+            left: 100px;
+            top: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 20px orange;
+        }
+
+        /* 🔽 DROPDOWN OSCURO */
         .dropdown-menu {
             display: none;
             position: absolute;
-            background: white;
+            background: #111;
             list-style: none;
             padding: 10px;
+            border-radius: 10px;
+        }
+
+        .dropdown-menu li a {
+            color: white;
+        }
+
+        .dropdown-menu li a:hover {
+            color: gold;
         }
 
         .dropdown:hover .dropdown-menu {
             display: block;
         }
 
+        /* ❌ ELIMINAMOS CARRITO DE ARRIBA */
         .carrito-icono {
-            position: absolute;
-            right: 20px;
-            top: 10px;
+            display: none;
         }
 
-        /* 🔥 NUEVO CARRITO ABAJO */
+        /* 🔥 CARRITO ABAJO */
         .carrito-fijo {
             position: fixed;
             bottom: 80px;
@@ -59,7 +79,7 @@
             font-size: 12px;
         }
 
-        /* 🔥 ANIMACIÓN TOTAL */
+        /* 💰 ANIMACIÓN TOTAL */
         .total-animado {
             font-weight: bold;
             transition: transform 0.3s;
@@ -84,6 +104,17 @@
             0% { transform: scale(1) translate(0,0); opacity:1; }
             100% { transform: scale(0.2) translate(200px,-200px); opacity:0; }
         }
+
+        /* 🔥 TITULO MEJORADO */
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 30px;
+            text-align: center;
+            margin: 20px 0;
+            color: white;
+            text-shadow: 0 0 10px gold;
+        }
+
     </style>
 </head>
 
@@ -91,6 +122,9 @@
 
 <nav class="navbar">
     <img src="imagenes/logo.png" width="80" alt="Logo">
+
+    <!-- 🔥 NOMBRE MARCA -->
+    <div class="marca">CHOCOFEST</div>
 
     <ul>
         <li><a href="#">Inicio</a></li>
@@ -107,10 +141,6 @@
 
         <li><a href="contacto.html">Contacto</a></li>
     </ul>
-
-    <div class="carrito-icono">
-        <img src="imagenes/carrito.png" width="40">
-    </div>
 </nav>
 
 <header>
@@ -120,7 +150,6 @@
 <section class="productos">
     <h2>Productos</h2>
 
-    <!-- PRODUCTOS (igual, no se modifican) -->
     <div class="producto">
         <img src="imagenes/producto1.jpg" alt="Producto 1">
         <h3>Producto 1</h3>
@@ -159,7 +188,7 @@
 
     <div class="carrito-container">
         
-        <!-- 🔥 CARRITO FIJO -->
+        <!-- 🔥 SOLO ESTE CARRITO (ABAJO) -->
         <div class="carrito-fijo">
             <img src="imagenes/carrito.png" class="carrito-icono2">
             <span id="contadorCarrito">0</span>
@@ -191,7 +220,6 @@ function agregarConAnimacion(boton, nombre, precio) {
     let img = boton.parentElement.querySelector("img");
     let rect = img.getBoundingClientRect();
 
-    // 🌠 estrella
     let estrella = document.createElement("div");
     estrella.classList.add("estrella");
     estrella.style.left = rect.left + "px";
@@ -227,6 +255,9 @@ function enviarPedido() {
 </script>
 
 <script src="script.js"></script>
+
+</body>
+</html>></script>
 
 </body>
 </html>
