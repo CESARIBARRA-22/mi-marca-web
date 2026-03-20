@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
+    <!-- Página de inicio -->
     <url>
         <loc>https://cesaribarra-22.github.io/mi-marca-web/</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
+    <!-- Página de contacto -->
     <url>
         <loc>https://cesaribarra-22.github.io/mi-marca-web/contacto.html</loc>
         <changefreq>monthly</changefreq>
