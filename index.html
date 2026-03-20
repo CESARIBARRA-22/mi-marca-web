@@ -4,21 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chocofest - Tienda Oficial</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
     <style>
-        .boton-rojo { background-color: red; color: white; padding: 10px 20px; border: none; cursor: pointer; margin-top:5px;}
+        .boton-rojo { 
+            background-color: red; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            cursor: pointer; 
+            margin-top:5px;
+            display:block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            list-style: none;
+            padding: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .carrito-icono {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+        }
     </style>
 </head>
+
 <body>
 
 <nav class="navbar">
     <img src="imagenes/logo.png" width="80" alt="Logo">
+
     <ul>
         <li><a href="#">Inicio</a></li>
-        <li><a href="#">Productos</a></li>
+
+        <!-- MENU DESPLEGABLE -->
+        <li class="dropdown">
+            <a href="#">Productos</a>
+            <ul class="dropdown-menu">
+                <li><a href="producto1.html">Producto 1</a></li>
+                <li><a href="producto2.html">Producto 2</a></li>
+                <li><a href="producto3.html">Producto 3</a></li>
+                <li><a href="producto4.html">Producto 4</a></li>
+            </ul>
+        </li>
+
         <li><a href="contacto.html">Contacto</a></li>
     </ul>
+
+    <!-- ICONO CARRITO -->
+    <div class="carrito-icono">
+        <img src="imagenes/carrito.png" width="40">
+    </div>
 </nav>
 
 <header>
@@ -28,44 +74,81 @@
 <section class="productos">
     <h2>Productos</h2>
 
+    <!-- PRODUCTO 1 -->
     <div class="producto">
         <img src="imagenes/producto1.jpg" alt="Producto 1">
         <h3>Producto 1</h3>
         <p>$20.000</p>
-        <a href="producto1.html"><button class="boton-rojo">Ver producto</button></a>
+
+        <a href="producto1.html">
+            <button class="boton-rojo">Ver producto</button>
+        </a>
+
+        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 1', 20000)">
+            Añadir al carrito
+        </button>
     </div>
 
+    <!-- PRODUCTO 2 -->
     <div class="producto">
         <img src="imagenes/producto2.jpg" alt="Producto 2">
         <h3>Producto 2</h3>
         <p>$25.000</p>
-        <a href="producto2.html"><button class="boton-rojo">Ver producto</button></a>
+
+        <a href="producto2.html">
+            <button class="boton-rojo">Ver producto</button>
+        </a>
+
+        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 2', 25000)">
+            Añadir al carrito
+        </button>
     </div>
 
+    <!-- PRODUCTO 3 -->
     <div class="producto">
         <img src="imagenes/producto3.jpg" alt="Producto 3">
         <h3>Producto 3</h3>
         <p>$30.000</p>
-        <a href="producto3.html"><button class="boton-rojo">Ver producto</button></a>
+
+        <a href="producto3.html">
+            <button class="boton-rojo">Ver producto</button>
+        </a>
+
+        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 3', 30000)">
+            Añadir al carrito
+        </button>
     </div>
 
+    <!-- PRODUCTO 4 -->
     <div class="producto">
         <img src="imagenes/producto4.jpg" alt="Producto 4">
         <h3>Producto 4</h3>
         <p>$35.000</p>
-        <a href="producto4.html"><button class="boton-rojo">Ver producto</button></a>
+
+        <a href="producto4.html">
+            <button class="boton-rojo">Ver producto</button>
+        </a>
+
+        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 4', 35000)">
+            Añadir al carrito
+        </button>
     </div>
 
 </section>
 
 <section class="carrito">
     <h2>Carrito</h2>
+
     <div class="carrito-container">
         <img src="imagenes/carrito.png" alt="Carrito">
         <ul id="listaCarrito"></ul>
     </div>
+
     <p>Total: $<span id="total">0</span></p>
-    <button onclick="enviarPedido()" class="boton-rojo">Enviar pedido por WhatsApp</button>
+
+    <button onclick="enviarPedido()" class="boton-rojo">
+        Enviar pedido por WhatsApp
+    </button>
 </section>
 
 <section class="contacto">
@@ -75,6 +158,59 @@
         <img src="imagenes/correo.png" onclick="irCorreo()" alt="Correo">
     </div>
 </section>
+
+<script>
+let carrito = [];
+let total = 0;
+
+function agregarConAnimacion(boton, nombre, precio) {
+    let img = boton.parentElement.querySelector("img");
+
+    let clon = img.cloneNode(true);
+    clon.style.position = "absolute";
+    clon.style.zIndex = "1000";
+    clon.style.width = "80px";
+    clon.style.transition = "all 1s ease";
+
+    let rect = img.getBoundingClientRect();
+    clon.style.left = rect.left + "px";
+    clon.style.top = rect.top + "px";
+
+    document.body.appendChild(clon);
+
+    let carritoIcono = document.querySelector(".carrito-icono");
+    let destino = carritoIcono.getBoundingClientRect();
+
+    setTimeout(() => {
+        clon.style.left = destino.left + "px";
+        clon.style.top = destino.top + "px";
+        clon.style.opacity = "0";
+        clon.style.transform = "scale(0.3)";
+    }, 10);
+
+    setTimeout(() => clon.remove(), 1000);
+
+    añadirAlCarrito(nombre, precio);
+}
+
+function añadirAlCarrito(nombre, precio) {
+    carrito.push({nombre, precio});
+    total += precio;
+
+    let lista = document.getElementById("listaCarrito");
+    lista.innerHTML = carrito.map(item => `<li>${item.nombre} - $${item.precio}</li>`).join("");
+
+    document.getElementById("total").innerText = total;
+}
+
+function enviarPedido() {
+    let mensaje = "Hola quiero comprar:\n";
+    carrito.forEach(p => mensaje += `${p.nombre} - $${p.precio}\n`);
+    mensaje += `Total: $${total}`;
+
+    window.open(`https://wa.me/573128779750?text=${encodeURIComponent(mensaje)}`);
+}
+</script>
 
 <script src="script.js"></script>
 
