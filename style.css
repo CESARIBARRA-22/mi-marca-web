@@ -331,3 +331,23 @@ a {
     text-align: right;
     font-size: 18px;
 }
+
+/* DESPLEGABLE CORREGIDO */
+.navbar .dropdown-menu {
+    position: absolute;       /* ya lo tenías, lo reforzamos */
+    top: 100%;                /* justo debajo del menú padre */
+    left: 0;
+    z-index: 9999;            /* se asegura que esté encima de todos los productos */
+    display: none;            /* oculto por defecto */
+}
+
+/* Mostrar solo al pasar el mouse */
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Opcional: evitar que se vea raro al guardar o animar */
+.dropdown-menu {
+    min-width: 160px;         /* ancho mínimo consistente */
+    transform: translateY(0); /* elimina cualquier deslizamiento extraño */
+}
