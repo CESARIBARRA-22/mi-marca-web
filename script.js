@@ -50,6 +50,15 @@ function actualizarCarritoUI() {
         `).join("");
     }
 
+    function eliminarProducto(index) {
+    if (confirm("¿Eliminar este producto?")) {
+        total -= carrito[index].precio;
+        carrito.splice(index, 1);
+
+        guardarCarrito();
+        actualizarCarritoUI();
+    }
+}
     let totalSpan = document.getElementById("total");
     if (totalSpan) {
         totalSpan.innerText = total;
@@ -89,6 +98,14 @@ function agregarConAnimacion(boton, nombre, precio) {
 function añadirAlCarrito(nombre, precio) {
     carrito.push({nombre, precio});
     total += precio;
+
+    guardarCarrito();
+    actualizarCarritoUI();
+}
+
+function vaciarCarrito() {
+    carrito = [];
+    total = 0;
 
     guardarCarrito();
     actualizarCarritoUI();
