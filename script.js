@@ -1,23 +1,28 @@
 // FORMULARIO
-document.getElementById("formRegistro")?.addEventListener("submit", function (e) {
-    e.preventDefault();
+const form = document.getElementById("formRegistro");
 
-    let inputs = document.querySelectorAll("#formRegistro input");
+if (form) {
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    let usuario = {
-        nombre: inputs[0].value,
-        cedula: inputs[1].value,
-        departamento: inputs[2].value,
-        municipio: inputs[3].value,
-        direccion: inputs[4].value
-    };
+        let inputs = document.querySelectorAll("#formRegistro input");
 
-    document.getElementById("resultado").innerHTML = `
-        <p>${usuario.nombre} registrado</p>
-    `;
+        let usuario = {
+            nombre: inputs[0].value,
+            cedula: inputs[1].value,
+            departamento: inputs[2].value,
+            municipio: inputs[3].value,
+            direccion: inputs[4].value
+        };
 
-    this.reset();
-});
+        let resultado = document.getElementById("resultado");
+        if (resultado) {
+            resultado.innerHTML = `<p>${usuario.nombre} registrado</p>`;
+        }
+
+        this.reset();
+    });
+}
 
 
 // 🛒 VARIABLES CARRITO (CON GUARDADO)
@@ -40,7 +45,7 @@ function actualizarCarritoUI() {
         lista.innerHTML = carrito.map((item, i) => `
             <li>
                 ${item.nombre} - $${item.precio}
-                <button onclick="eliminarProducto(${i})">❌</button>
+                <button onclick="eliminarProducto(${i})" class="boton-rojo">🗑️</button>
             </li>
         `).join("");
     }
@@ -92,11 +97,13 @@ function añadirAlCarrito(nombre, precio) {
 
 // ❌ ELIMINAR PRODUCTO
 function eliminarProducto(index) {
-    total -= carrito[index].precio;
-    carrito.splice(index, 1);
+    if (carrito[index]) {
+        total -= carrito[index].precio;
+        carrito.splice(index, 1);
 
-    guardarCarrito();
-    actualizarCarritoUI();
+        guardarCarrito();
+        actualizarCarritoUI();
+    }
 }
 
 
@@ -111,7 +118,7 @@ function comprarWhatsApp(producto, imagen) {
 }
 
 
-// 📲 BOTÓN WHATSAPP (CORREGIDO PRO)
+// 📲 BOTÓN WHATSAPP
 function irWhatsApp() {
     let numero = "573128779750";
     let mensaje = "Hola, quiero información sobre los productos 🍫";
@@ -122,16 +129,7 @@ function irWhatsApp() {
 }
 
 
-function irCorreo() {
-    let correo = "cesaribarragonzalez508@gmail.com";
-    let asunto = "Consulta sobre productos Chocofest";
-    let mensaje = "Hola, quiero más información sobre sus productos.";
-
-    let url = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
-
-    window.open(url, "_blank");
-}
-
+// 📧 CORREO (ARREGLADO)
 function irCorreo() {
     let correo = "cesaribarragonzalez508@gmail.com";
     let asunto = "Consulta sobre productos Chocofest";
@@ -139,9 +137,9 @@ function irCorreo() {
 
     let mailtoLink = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
 
-    // 🔥 FORZAR APERTURA REAL
     window.location.href = mailtoLink;
 }
+
 
 // 🛒 ENVIAR PEDIDO
 function enviarPedido() {
@@ -167,7 +165,7 @@ document.querySelectorAll(".dropdown > a").forEach(menu => {
 });
 
 
-// ✨ SCROLL
+// ✨ SCROLL ANIMACIÓN
 const elementos = document.querySelectorAll(".producto, .registro, .contacto, .carrito");
 
 function mostrarElementos() {
