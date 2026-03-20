@@ -8,6 +8,77 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* CENTRADO Y REDUCCIÓN DE IMÁGENES */
+        .slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .slider img {
+            width: 250px; /* más pequeñas */
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .slider button {
+            background: linear-gradient(45deg, gold, orange);
+            color: black;
+            font-weight: bold;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .slider button:hover {
+            transform: scale(1.1);
+        }
+
+        .redes, .contacto {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .iconos {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .iconos img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .iconos img:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px gold);
+        }
+
+        .redes a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .redes a span {
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,14 +112,17 @@
         <div class="iconos">
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
                 <img src="imagenes/instagram.png" alt="Instagram">
+                <span>Instagram</span>
             </a>
 
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
                 <img src="imagenes/facebook.png" alt="Facebook">
+                <span>Facebook</span>
             </a>
 
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
                 <img src="imagenes/x.png" alt="X">
+                <span>X</span>
             </a>
         </div>
     </section>
@@ -59,7 +133,9 @@
 
         <div class="iconos">
             <img src="imagenes/whatsapp.png" onclick="irWhatsApp()" alt="WhatsApp" title="Enviar mensaje por WhatsApp">
-            <img src="imagenes/correo.png" onclick="irCorreo()" alt="Correo" title="Enviar correo">
+            <a href="mailto:cesaribarragonzalez508@gmail.com?subject=Información Chocofest&body=Hola, quiero más información sobre sus productos.">
+                <img src="imagenes/correo.png" alt="Correo" title="Enviar correo">
+            </a>
         </div>
     </section>
 
@@ -72,6 +148,7 @@
         ];
 
         let indice = 0;
+        const imgSlider = document.getElementById("imagenSlider");
 
         function cambiarImagen(direccion) {
             indice += direccion;
@@ -84,23 +161,18 @@
                 indice = 0;
             }
 
-            let img = document.getElementById("imagenSlider");
-
-            if (img) {
-                img.src = imagenes[indice];
-            }
+            imgSlider.src = imagenes[indice];
         }
+
+        // ⚡ Cambiar imagen automáticamente cada 4 segundos
+        setInterval(() => {
+            cambiarImagen(1);
+        }, 4000);
 
         function irWhatsApp() {
             let numero = "573128779750";
             let url = "https://wa.me/" + numero;
-
-            window.open(url, "_blank"); // 🔥 mejora
-        }
-
-        function irCorreo() {
-            let correo = "cesaribarragonzalez508@gmail.com";
-            window.open("mailto:" + correo);
+            window.open(url, "_blank");
         }
     </script>
 
