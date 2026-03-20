@@ -326,3 +326,21 @@ a {
     letter-spacing: 3px;
     text-shadow: 0 0 10px gold;
 }
+/* 🛒 PANEL LATERAL */
+.panel-carrito {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 300px;
+    height: 100%;
+    background: #111;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+    padding: 20px;
+    transition: 0.4s;
+    z-index: 2000;
+}
+
+/* ACTIVO */
+.panel-carrito.activo {
+    right: 0;
+}
