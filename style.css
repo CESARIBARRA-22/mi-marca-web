@@ -331,3 +331,33 @@ a {
     text-align: right;
     font-size: 18px;
 }
+
+/* AJUSTE MARCA Y BOTONES */
+.marca {
+    left: 140px;      /* un poco más a la derecha */
+    top: 15px;        /* un poco más arriba */
+    font-size: 22px;
+    text-shadow: 0 0 6px gold, 0 0 12px gold, 0 0 25px orange;
+}
+
+/* ESPACIADO BOTONES DEL MENÚ */
+.navbar ul {
+    gap: 20px;       /* separa los botones horizontalmente */
+}
+
+/* BOTONES DEL MENU CON EFECTO HOVER */
+.navbar a {
+    padding: 8px 15px;
+    border-radius: 8px;
+    background: rgba(255,215,0,0.1); /* efecto dorado transparente */
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+/* HOVER ANIMADO */
+.navbar a:hover {
+    color: black;
+    background: gold;
+    box-shadow: 0 0 10px gold, 0 0 20px orange;
+    transform: scale(1.1);
+}
