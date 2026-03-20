@@ -1,1 +1,3 @@
-1
+User-agent: *
+Allow: /
+Sitemap: https://cesaribarra-22.github.io/mi-marca-web/sitemap.xml
