@@ -45,6 +45,7 @@ body {
     display: flex;
     list-style: none;
     margin: 0;
+    padding: 0;
 }
 
 .navbar li {
@@ -62,7 +63,7 @@ body {
     color: gold;
 }
 
-/* 🔽 DROPDOWN PRO CORREGIDO */
+/* 🔽 DROPDOWN */
 .dropdown {
     position: relative;
 }
@@ -78,7 +79,6 @@ body {
     min-width: 160px;
     box-shadow: 0 0 15px rgba(255,215,0,0.3);
 
-    /* 🔥 ANIMACIÓN PRO */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -96,7 +96,6 @@ body {
     transition: 0.3s;
 }
 
-/* ✨ EFECTOS */
 .dropdown-menu a:hover {
     color: gold;
     text-shadow: 0 0 8px gold;
@@ -104,7 +103,6 @@ body {
     border-radius: 5px;
 }
 
-/* 🔥 ACTIVACIÓN */
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -140,7 +138,7 @@ form input:focus {
     box-shadow: 0 0 8px gold;
 }
 
-/* BOTONES */
+/* BOTONES GENERALES */
 button {
     background: linear-gradient(45deg, gold, orange);
     color: black;
@@ -225,7 +223,15 @@ a {
     transform: translateY(0);
 }
 
-/* 🔥 CARRITO */
+/* 🛒 CARRITO */
+.carrito {
+    background: #111;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 30px;
+    box-shadow: 0 0 20px rgba(255,215,0,0.2);
+}
+
 .carrito-fijo {
     position: fixed;
     bottom: 80px;
@@ -235,6 +241,7 @@ a {
 
 .carrito-icono2 {
     width: 40px;
+    transition: 0.3s;
 }
 
 .carrito-icono2:hover {
@@ -290,16 +297,7 @@ a {
     100% { transform: scale(0.2) translate(200px,-200px); opacity:0; }
 }
 
-/* 🛒 CARRITO PRO */
-.carrito {
-    background: #111;
-    border-radius: 20px;
-    padding: 20px;
-    margin: 30px;
-    box-shadow: 0 0 20px rgba(255,215,0,0.2);
-}
-
-/* ITEMS */
+/* ITEMS DEL CARRITO */
 #listaCarrito li {
     background: #1a1a1a;
     margin: 8px 0;
@@ -320,7 +318,7 @@ a {
     border-radius: 5px;
 }
 
-/* TITULO */
+/* TITULO PRO */
 .titulo-pro {
     font-size: 28px;
     letter-spacing: 3px;
