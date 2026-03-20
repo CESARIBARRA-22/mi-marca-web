@@ -122,7 +122,6 @@ function irWhatsApp() {
 }
 
 
-// 📧 BOTÓN CORREO (CORREGIDO PRO)
 function irCorreo() {
     let correo = "cesaribarragonzalez508@gmail.com";
     let asunto = "Consulta sobre productos Chocofest";
@@ -130,7 +129,7 @@ function irCorreo() {
 
     let url = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
 
-    window.open(url);
+    window.open(url, "_blank");
 }
 
 
