@@ -8,6 +8,50 @@
     <meta name="description" content="Compra Producto 2 de Chocofest - Chocolates deliciosos online.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para centrar y ajustar la imagen del producto */
+        .producto-detalle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 40px 20px;
+        }
+
+        .producto-detalle img {
+            width: 300px;
+            max-width: 80%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .producto-detalle h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .producto-detalle p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .producto-detalle button {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .producto-detalle button:hover {
+            background-color: #e60050;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +70,19 @@
 
     <section class="producto-detalle">
         <img src="imagenes/producto2.jpg" alt="Producto 2">
-        <h2>Producto 2</h2>
+        <h2>Chocolate con Avellanas Chocofest</h2>
+        <p>
+            Descubre nuestro exquisito Chocolate con Avellanas Chocofest, una combinación perfecta de cacao premium y avellanas tostadas 
+            que aportan un sabor intenso y textura crujiente en cada mordida. Ideal para los amantes del chocolate con frutos secos. 
+            <br><br>
+            <strong>Ingredientes:</strong> cacao puro, avellanas seleccionadas, azúcar orgánica, manteca de cacao, leche en polvo (opcional), extracto natural de vainilla. Sin conservantes ni colorantes artificiales.
+            <br><br>
+            <strong>Preparación:</strong> Cada barra se elabora artesanalmente, con un proceso de conchado y templado que garantiza una textura suave y brillante. Las avellanas se integran de manera uniforme para disfrutar de cada bocado con el balance perfecto de chocolate y frutos secos.
+            <br><br>
+            <strong>Recomendaciones:</strong> Conserva en un lugar fresco y seco, lejos de la luz directa del sol. Ideal para regalar, acompañar café o disfrutar como snack saludable y delicioso.
+            <br><br>
+            Vive la experiencia premium de Chocofest con este chocolate que combina tradición artesanal, ingredientes naturales y un sabor inigualable que deleitará tu paladar.
+        </p>
         <p>Precio: $25.000</p>
         <button onclick="comprarWhatsApp('Producto 2', 'imagenes/producto2.jpg')">Comprar por WhatsApp</button>
     </section>
