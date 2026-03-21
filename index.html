@@ -392,13 +392,8 @@ button:hover {
     <div class="iconos">
         <img src="imagenes/whatsapp.png" onclick="irWhatsApp()">
         <img src="imagenes/correo.png" onclick="irCorreo()">
-        <!-- Si quieres un botón visible -->
-        <button onclick="irCorreo()">Enviar correo</button>
     </div>
 </section>
-
-<!-- SCRIPT -->
-<script src="script.js"></script>
 
 <script>
 let carrito = [];
@@ -459,6 +454,14 @@ function irWhatsApp() {
     let mensaje = "Hola, quiero más información sobre Chocofest 🍫";
     window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`);
 }
+
+function irCorreo() {
+    let correo = "cesaribarragonzalez508@gmail.com";
+    let asunto = "Información Chocofest";
+    let cuerpo = "Hola, quiero más información sobre sus productos.";
+    location.href = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+}
+</script>
 
 </body>
 </html>
