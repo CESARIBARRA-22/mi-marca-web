@@ -26,9 +26,3 @@ El objetivo es ofrecer una experiencia de compra sencilla y atractiva para los u
 - **GitHub Pages** para publicar la página web en internet.
 
 ---
-
-## 🔹 Instalación / Cómo ver la página
-
-1. Clona el repositorio en tu computadora:
-   ```bash
-   git clone https://github.com/cesaribarra-22/mi-marca-web.git
