@@ -8,6 +8,50 @@
     <meta name="description" content="Compra Producto 4 de Chocofest - Chocolates deliciosos online.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para centrar y ajustar la imagen del producto */
+        .producto-detalle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 40px 20px;
+        }
+
+        .producto-detalle img {
+            width: 300px;
+            max-width: 80%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .producto-detalle h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .producto-detalle p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .producto-detalle button {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .producto-detalle button:hover {
+            background-color: #e60050;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +70,18 @@
 
     <section class="producto-detalle">
         <img src="imagenes/producto4.jpg" alt="Producto 4">
-        <h2>Producto 4</h2>
+        <h2>Chocolate con Almendras y Caramelo Chocofest</h2>
+        <p>
+            Disfruta de nuestro Chocolate con Almendras y Caramelo Chocofest, una exquisita combinación de chocolate oscuro, almendras tostadas y caramelo artesanal que se funde en tu boca creando una experiencia única. Cada bocado ofrece una mezcla perfecta de sabor intenso, textura crujiente y dulzura equilibrada.
+            <br><br>
+            <strong>Ingredientes:</strong> cacao puro, azúcar orgánica, manteca de cacao, almendras seleccionadas, caramelo artesanal, extracto natural de vainilla, y un toque de sal marina. Sin conservantes ni colorantes artificiales.
+            <br><br>
+            <strong>Preparación:</strong> Elaborado de manera artesanal con un cuidadoso proceso de conchado y templado, asegurando un chocolate cremoso y brillante. Las almendras y el caramelo se integran de forma uniforme para brindar un balance perfecto de texturas y sabores.
+            <br><br>
+            <strong>Recomendaciones:</strong> Mantener en un lugar fresco y seco, alejado de la luz directa del sol. Ideal para regalar, disfrutar con café o como snack gourmet en cualquier momento del día. Perfecto para quienes buscan un chocolate sofisticado y delicioso.
+            <br><br>
+            Con cada barra de Chocofest experimentarás la pasión artesanal, ingredientes de primera calidad y un sabor único que deleitará tu paladar y hará de cada momento algo especial.
+        </p>
         <p>Precio: $35.000</p>
         <button onclick="comprarWhatsApp('Producto 4', 'imagenes/producto4.jpg')">Comprar por WhatsApp</button>
     </section>
