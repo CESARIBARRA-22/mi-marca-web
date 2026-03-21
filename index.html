@@ -455,12 +455,7 @@ function irWhatsApp() {
     window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`);
 }
 
-function irCorreo() {
-    let correo = "cesaribarragonzalez508@gmail.com";
-    let asunto = "Información Chocofest";
-    let cuerpo = "Hola, quiero más información sobre sus productos.";
-    location.href = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
-}
+<button onclick="irCorreo()">Enviar correo</button>
 </script>
 
 </body>
