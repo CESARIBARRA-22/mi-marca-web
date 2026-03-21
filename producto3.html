@@ -8,6 +8,50 @@
     <meta name="description" content="Compra Producto 3 de Chocofest - Chocolates deliciosos online.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para centrar y ajustar la imagen del producto */
+        .producto-detalle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 40px 20px;
+        }
+
+        .producto-detalle img {
+            width: 300px;
+            max-width: 80%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .producto-detalle h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .producto-detalle p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .producto-detalle button {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .producto-detalle button:hover {
+            background-color: #e60050;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +70,19 @@
 
     <section class="producto-detalle">
         <img src="imagenes/producto3.jpg" alt="Producto 3">
-        <h2>Producto 3</h2>
+        <h2>Chocolate Blanco con Frutas Chocofest</h2>
+        <p>
+            Experimenta el sabor único de nuestro Chocolate Blanco con Frutas Chocofest, una deliciosa combinación de chocolate blanco cremoso 
+            y frutas deshidratadas seleccionadas cuidadosamente para ofrecer un contraste perfecto entre dulce y ácido. 
+            <br><br>
+            <strong>Ingredientes:</strong> manteca de cacao, azúcar orgánica, leche en polvo, frutas deshidratadas (fresas, arándanos, mango), extracto natural de vainilla, y un toque de sal marina. Sin conservantes ni colorantes artificiales.
+            <br><br>
+            <strong>Preparación:</strong> Elaborado de manera artesanal, con un proceso de templado que asegura un chocolate suave y brillante. Las frutas se incorporan de forma uniforme para que cada bocado tenga el balance perfecto entre chocolate y fruta.
+            <br><br>
+            <strong>Recomendaciones:</strong> Conservar en lugar fresco y seco, lejos de la luz directa del sol. Perfecto para regalar, acompañar café o disfrutar como snack gourmet. Ideal para quienes buscan un chocolate distinto y sofisticado.
+            <br><br>
+            Este chocolate combina tradición artesanal, calidad premium y sabores naturales, brindando una experiencia sensorial inigualable que deleitará tu paladar.
+        </p>
         <p>Precio: $30.000</p>
         <button onclick="comprarWhatsApp('Producto 3', 'imagenes/producto3.jpg')">Comprar por WhatsApp</button>
     </section>
