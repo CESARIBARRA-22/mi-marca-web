@@ -8,6 +8,48 @@
     <meta name="description" content="Compra Producto 1 de Chocofest - Chocolates deliciosos online.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para centrar y ajustar la imagen del producto */
+        .producto-detalle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 40px 20px;
+        }
+
+        .producto-detalle img {
+            width: 300px; /* Ajusta el tamaño de la imagen */
+            max-width: 80%; /* Para que se vea bien en pantallas pequeñas */
+            border-radius: 10px; /* Opcional: bordes suaves */
+            margin-bottom: 20px;
+        }
+
+        .producto-detalle h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .producto-detalle p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .producto-detalle button {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .producto-detalle button:hover {
+            background-color: #e60050;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +68,8 @@
 
     <section class="producto-detalle">
         <img src="imagenes/producto1.jpg" alt="Producto 1">
-        <h2>Producto 1</h2>
+        <h2>Chocolate Artesanal</h2>
+        <p>Delicioso chocolate oscuro con ingredientes naturales. Perfecto para regalos o disfrutar en cualquier momento.</p>
         <p>Precio: $20.000</p>
         <button onclick="comprarWhatsApp('Producto 1', 'imagenes/producto1.jpg')">Comprar por WhatsApp</button>
     </section>
