@@ -148,13 +148,14 @@ function irWhatsApp() {
 
 // 📧 CORREO (ARREGLADO)
 function irCorreo() {
-    let correo = "cesaribarragonzalez508@gmail.com";
-    let asunto = "Consulta sobre productos Chocofest";
-    let mensaje = "Hola, quiero más información sobre sus productos.";
+    const correo = "cesaribarragonzalez508@gmail.com";
+    const asunto = "Consulta sobre productos Chocofest";
+    const mensaje = `Hola, quiero más información sobre sus productos.
 
-    let mailtoLink = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+Por favor, envíenme detalles sobre precios, disponibilidad y promociones.`;
 
-    window.location.href = mailtoLink;
+    // Abrir el cliente de correo predeterminado del usuario
+    window.location.href = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
 }
 
 
