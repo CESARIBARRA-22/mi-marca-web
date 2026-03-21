@@ -459,7 +459,7 @@ function irCorreo() {
     let correo = "cesaribarragonzalez508@gmail.com";
     let asunto = "Información Chocofest";
     let cuerpo = "Hola, quiero más información sobre sus productos.";
-    window.open(`mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`);
+    location.href = `mailto:${correo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
 }
 </script>
 
