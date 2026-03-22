@@ -25,19 +25,19 @@ if (form) {
 }
 
 
-// 🛒 VARIABLES CARRITO (CON GUARDADO)
+// VARIABLES CARRITO (CON GUARDADO)
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let total = JSON.parse(localStorage.getItem("total")) || 0;
 
 
-// 💾 GUARDAR
+// GUARDAR
 function guardarCarrito() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
     localStorage.setItem("total", total);
 }
 
 
-// 🔄 ACTUALIZAR UI
+// ACTUALIZAR UI
 function actualizarCarritoUI() {
     let lista = document.getElementById("listaCarrito");
 
@@ -77,7 +77,7 @@ function actualizarCarritoUI() {
 }
 
 
-// 🌠 AÑADIR CON ANIMACIÓN
+// AÑADIR CON ANIMACIÓN
 function agregarConAnimacion(boton, nombre, precio) {
     let img = boton.parentElement.querySelector("img");
     let rect = img.getBoundingClientRect();
@@ -94,7 +94,7 @@ function agregarConAnimacion(boton, nombre, precio) {
 }
 
 
-// 🛒 AÑADIR AL CARRITO
+// AÑADIR AL CARRITO
 function añadirAlCarrito(nombre, precio) {
     carrito.push({nombre, precio});
     total += precio;
@@ -112,7 +112,7 @@ function vaciarCarrito() {
 }
 
 
-// ❌ ELIMINAR PRODUCTO
+// ELIMINAR PRODUCTO
 function eliminarProducto(index) {
     if (carrito[index]) {
         total -= carrito[index].precio;
@@ -124,7 +124,7 @@ function eliminarProducto(index) {
 }
 
 
-// 📲 WHATSAPP PRODUCTOS
+// WHATSAPP PRODUCTOS
 function comprarWhatsApp(producto, imagen) {
     let numero = "573128779750";
     let urlImagen = window.location.origin + "/" + imagen;
@@ -135,7 +135,7 @@ function comprarWhatsApp(producto, imagen) {
 }
 
 
-// 📲 BOTÓN WHATSAPP
+// BOTÓN WHATSAPP
 function irWhatsApp() {
     let numero = "573128779750";
     let mensaje = "Hola, quiero información sobre los productos 🍫";
@@ -146,7 +146,7 @@ function irWhatsApp() {
 }
 
 
-// 📧 CORREO (ARREGLADO)
+// CORREO (ARREGLADO)
 function irCorreo() {
     const correo = "cesaribarragonzalez508@gmail.com";
     const asunto = "Consulta sobre productos Chocofest";
@@ -159,7 +159,7 @@ Por favor, envíenme detalles sobre precios, disponibilidad y promociones.`;
 }
 
 
-// 🛒 ENVIAR PEDIDO
+// ENVIAR PEDIDO
 function enviarPedido() {
     let mensaje = "Hola quiero comprar:\n";
 
@@ -173,7 +173,7 @@ function enviarPedido() {
 }
 
 
-// 🔥 DROPDOWN CLICK
+// DROPDOWN CLICK
 document.querySelectorAll(".dropdown > a").forEach(menu => {
     menu.addEventListener("click", function(e){
         e.preventDefault();
@@ -183,7 +183,7 @@ document.querySelectorAll(".dropdown > a").forEach(menu => {
 });
 
 
-// ✨ SCROLL ANIMACIÓN
+// SCROLL ANIMACIÓN
 const elementos = document.querySelectorAll(".producto, .registro, .contacto, .carrito");
 
 function mostrarElementos() {
@@ -201,7 +201,7 @@ function mostrarElementos() {
 window.addEventListener("scroll", mostrarElementos);
 
 
-// 🔥 CARGA INICIAL
+// CARGA INICIAL
 window.addEventListener("load", () => {
     actualizarCarritoUI();
     mostrarElementos();
