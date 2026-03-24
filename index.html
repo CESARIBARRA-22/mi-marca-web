@@ -352,7 +352,6 @@ button:hover {
 
 <section class="productos">
 
-<div class="catalogo-texto">
 <h2>Catálogo de Chocolates</h2>
 
 <p>
@@ -360,48 +359,52 @@ En Chocofest ofrecemos chocolates artesanales de excelente calidad.
 Explora nuestro catálogo y añade tus productos favoritos al carrito.
 </p>
 
-</div>    
-    <div class="producto">
-        <img src="imagenes/producto1.jpg">
-        <h3>Producto 1</h3>
-        <p>$20.000</p>
-        <a href="producto1.html"><button class="boton-rojo">Ver producto</button></a>
-        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 1', 20000)">Añadir al carrito</button>
-    </div>
+<div class="productos-grid">
 
-    <div class="producto">
-        <img src="imagenes/producto2.jpg">
-        <h3>Producto 2</h3>
-        <p>$25.000</p>
-        <a href="producto2.html"><button class="boton-rojo">Ver producto</button></a>
-        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 2', 25000)">Añadir al carrito</button>
-    </div>
+<!-- producto 1 -->
+<div class="producto">
+...
+</div>
 
-    <div class="producto">
-        <img src="imagenes/producto3.jpg">
-        <h3>Producto 3</h3>
-        <p>$30.000</p>
-        <a href="producto3.html"><button class="boton-rojo">Ver producto</button></a>
-        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 3', 30000)">Añadir al carrito</button>
-    </div>
+<!-- producto 2 -->
+<div class="producto">
+...
+</div>
 
-    <div class="producto">
-        <img src="imagenes/producto4.jpg">
-        <h3>Producto 4</h3>
-        <p>$35.000</p>
-        <a href="producto4.html"><button class="boton-rojo">Ver producto</button></a>
-        <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 4', 35000)">Añadir al carrito</button>
-    </div>
+<!-- producto 3 -->
+<div class="producto">
+...
+</div>
+
+</div>
+
+<section class="productos">
+
+<div class="producto">
+    <img src="imagenes/producto2.jpg">
+    <h3>Producto 2</h3>
+    <p>$25.000</p>
+    <a href="producto2.html"><button class="boton-rojo">Ver producto</button></a>
+    <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 2', 25000)">Añadir al carrito</button>
+</div>
+
+<div class="producto">
+    <img src="imagenes/producto3.jpg">
+    <h3>Producto 3</h3>
+    <p>$30.000</p>
+    <a href="producto3.html"><button class="boton-rojo">Ver producto</button></a>
+    <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 3', 30000)">Añadir al carrito</button>
+</div>
+
+<div class="producto">
+    <img src="imagenes/producto4.jpg">
+    <h3>Producto 4</h3>
+    <p>$35.000</p>
+    <a href="producto4.html"><button class="boton-rojo">Ver producto</button></a>
+    <button class="boton-rojo" onclick="agregarConAnimacion(this, 'Producto 4', 35000)">Añadir al carrito</button>
+</div>
+
 </section>
-
-<section class="carrito">
-    <h2>Carrito</h2>
-    <div class="carrito-container">
-        <div class="carrito-fijo">
-            <img src="imagenes/carrito.png" class="carrito-icono2">
-            <span id="contadorCarrito">0</span>
-        </div>
-        <ul id="listaCarrito"></ul>
 
         <!-- Total debajo del carrito-fijo -->
         <p>Total: $<span id="total" class="total-animado">0</span></p>
