@@ -158,27 +158,21 @@ button:hover {
 }
 
 /* PRODUCTOS */
-.catalogo-texto{
-max-width: 700px;
-margin: auto;
+.productos{
 text-align: center;
+padding: 40px 20px;
 }
 
-.catalogo-texto h2{
+.productos h2{
 margin-bottom: 10px;
+font-size: 28px;
 }
 
-.catalogo-texto p{
-margin-bottom: 30px;
+.productos p{
+max-width: 700px;
+margin: 0 auto 40px auto;
 font-size: 16px;
-line-height: 1.6;
 color: #ddd;
-}
-
-/* CONTACTO */
-.contacto {
-    text-align: center;
-    margin: 40px 0;
 }
 
 /* ICONOS */
