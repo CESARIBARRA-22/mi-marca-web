@@ -158,31 +158,21 @@ button:hover {
 }
 
 /* PRODUCTOS */
-.productos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.catalogo-texto{
+max-width: 700px;
+margin: auto;
+text-align: center;
 }
 
-.producto {
-    background: #1a1a1a;
-    margin: 20px;
-    padding: 15px;
-    border-radius: 15px;
-    width: 220px;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+.catalogo-texto h2{
+margin-bottom: 10px;
 }
 
-.producto:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(255,215,0,0.4);
-}
-
-.producto img {
-    width: 100%;
-    border-radius: 10px;
+.catalogo-texto p{
+margin-bottom: 30px;
+font-size: 16px;
+line-height: 1.6;
+color: #ddd;
 }
 
 /* CONTACTO */
