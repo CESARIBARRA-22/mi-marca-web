@@ -17,7 +17,12 @@ if (form) {
 
         let resultado = document.getElementById("resultado");
         if (resultado) {
-            resultado.innerHTML = `<p>${usuario.nombre} registrado</p>`;
+            // Create paragraph safely without interpreting usuario.nombre as HTML
+            const mensaje = document.createElement("p");
+            mensaje.textContent = usuario.nombre + " registrado";
+            // Clear previous content and append the new message
+            resultado.textContent = "";
+            resultado.appendChild(mensaje);
         }
 
         this.reset();
